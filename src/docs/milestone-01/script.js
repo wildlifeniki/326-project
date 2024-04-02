@@ -24,38 +24,38 @@ for (let i = 0; i < array.length; i++){
   //      array[i].classList.add("boxesMaroon");
   //  }
     if (i === 0){
-        array[i].classList.add("boxesWhite");
-        const node = document.createTextNode(" ");
+        array[i].classList.add("#boxesWhite");
+        const node = document.createTextNode("faefa");
         theP.appendChild(node);
         array[i].appendChild(theP);
     }
     if (i === 1){
-        array[i].classList.add("boxesMaroon");
-        const node = document.createTextNode(" ");
+        array[i].classList.add("#boxesMaroon");
+        const node = document.createTextNode(" eef");
         theP.appendChild(node);
         array[i].appendChild(theP);
     }
     if (i === 2){
         array[i].classList.add("boxesWhite");
-        const node = document.createTextNode(" ");
+        const node = document.createTextNode(" fdn");
         theP.appendChild(node);
         array[i].appendChild(theP);
     }
     if (i === 3){
         array[i].classList.add("boxesMaroon");
-        const node = document.createTextNode(" ");
+        const node = document.createTextNode("g ");
         theP.appendChild(node);
         array[i].appendChild(theP);
     }
     if (i === 4){
         array[i].classList.add("boxesWhite");
-        const node = document.createTextNode(" ");
+        const node = document.createTextNode("fdnsn ");
         theP.appendChild(node);
         array[i].appendChild(theP);
     }
     if (i === 5){
         array[i].classList.add("boxesMaroon");
-        const node = document.createTextNode(" ");
+        const node = document.createTextNode(" bszsb");
         theP.appendChild(node);
         array[i].appendChild(theP);
     }
@@ -65,7 +65,7 @@ function dynamicCounter(){
     counter = counter + 1;
 }
 const counterElem = document.getElementById("counter");
-counterElem.createTextNode(counter); // it's mad about this for some reason
+//counterElem.createTextNode(counter);
 let button = document.createElement("input");
 button.type = "button";
 button.addEventListener("click", dynamicCounter);
