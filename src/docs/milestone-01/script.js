@@ -6,9 +6,8 @@ const dataRequirements = document.getElementById("data-requirements");
 const wireFrames = document.getElementById("wire-frames");
 const realWorld = document.getElementById("real-world");
 const integrativeExperience = document.getElementById("integrative-experience");
+
 let array = [];
-//array.push(vision);
-//array.push(team);
 array.push(overview);
 array.push(applicationParts);
 array.push(dataRequirements);
@@ -26,58 +25,25 @@ for (let i = 0; i < array.length; i++) {
     }
 }
 
-// for (let i = 0; i < array.length; i++){
-//     const theP = document.createElement("p");
-//     //if (i % 2 === 0){
-//       //  array[i].classList.add("boxesWhite");
-//    // }
-//  //   else{
-//   //      array[i].classList.add("boxesMaroon");
-//   //  }
-//     if (i === 0){
-//         array[i].classList.add("borderbox");
-//         //const node = document.createTextNode("faefa");
-//         theP.appendChild(node);
-//         array[i].appendChild(theP);
-//     }
-//     if (i === 1){
-//         array[i].classList.add("unborderbox");
-//         //const node = document.createTextNode(" eef");
-//         theP.appendChild(node);
-//         array[i].appendChild(theP);
-//     }
-//     if (i === 2){
-//         array[i].classList.add("boxesWhite");
-//         //const node = document.createTextNode(" fdn");
-//         theP.appendChild(node);
-//         array[i].appendChild(theP);
-//     }
-//     if (i === 3){
-//         array[i].classList.add("boxesMaroon");
-//         //const node = document.createTextNode("g ");
-//         theP.appendChild(node);
-//         array[i].appendChild(theP);
-//     }
-//     if (i === 4){
-//         array[i].classList.add("boxesWhite");
-//         //const node = document.createTextNode("fdnsn ");
-//         theP.appendChild(node);
-//         array[i].appendChild(theP);
-//     }
-//     if (i === 5){
-//         array[i].classList.add("boxesMaroon");
-//         //const node = document.createTextNode(" bszsb");
-//         theP.appendChild(node);
-//         array[i].appendChild(theP);
-//     }
-// }
-// let counter = 0;
-// function dynamicCounter(){
-//     counter = counter + 1;
-// }
-// const counterElem = document.getElementById("counter");
-// //counterElem.createTextNode(counter);
-// let button = document.createElement("input");
-// button.type = "button";
-// button.addEventListener("click", dynamicCounter);
-// counterElem.appendChild(button);
+let image_i = 0
+const images = [
+    "https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg 1",
+    "https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg 2",
+    "https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg 3"
+]
+function cycle() {
+    let current = document.getElementById("wireframe-img");
+    image_i += 1;
+    if (image_i >= images.length) {
+        image_i = 0
+    }
+    current.value = images[image_i];
+    console.log(current.value)
+}
+
+
+let button = document.createElement("input");
+button.type = "button";
+button.value = "Next";
+button.addEventListener("click", cycle);
+wireFrames.appendChild(button);
