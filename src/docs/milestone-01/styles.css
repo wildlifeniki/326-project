@@ -1,37 +1,98 @@
 h1{
     color:black;
+    font-size: 36px;
+    font-weight: bold;
+    padding: 2px 16px;
 }
 h2{
-    color:white
+    color:cadetblue;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0px 8px;
 }
-#boxesWhite{
-  width: 300px;
+p{
+  color:black;
+  font-size: 16px;
+  padding: 0px 8px;
+}
+.member-name {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 8px;
+}
+
+.member-info {
+  font-size: 14px;
+  padding: 0px 8px;
+}
+
+.member-pic {
+  width: 60px;
+  height: 60px;
+}
+.boxesWhite{
+  /* width: 300px;
   height: 300px;
   margin-left: 200px;
-  margin-top: 100px;
+  margin-top: 100px; */
+  border: 1px cadetblue;
   padding: 1px;
   background-color: white;
 }
-#boxesMaroon{
-  width: 300px;
+.boxesMaroon{
+  /* width: 300px;
   height: 300px;
   margin-left: 200px;
-  margin-top: 100px;
+  margin-top: 100px; */
   padding: 1px;
   color: maroon;
 }
+.borderbox{
+  border: 1px dashed cadetblue;
+  width: 96%;
+  padding: 1px;
+  margin: 1px auto;
+}
+.unborderbox{
+  border: 1px;
+  width: 96%;
+  padding: 1px;
+  margin: 1px auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
 
 .vision {
-    border: 1px dashed cadetblue;
+    border: 1px solid cadetblue;
     width: 90%;
     padding: 1px;
     margin: 1px auto;
     margin-top: 5px;
   }
-  .team {
-    border: 1px dashed cadetblue;
+.team {
     width: 90%;
     padding: 1px;
     margin: 1px auto;
-    margin-top: 5px;
   }
+
+.navigation {
+  background-color: cadetblue;
+  overflow: hidden;
+}
+
+.navigation a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navigation a:hover {
+  background-color: #ddd;
+  color: black;
+}

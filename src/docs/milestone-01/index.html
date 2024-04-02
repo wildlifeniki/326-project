@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,56 +12,119 @@
 <body>
     <header>
         <!-- Navigation bar, logo, etc. -->
-        <div id="vision">
-            <h1>
+        <nav class="navigation">
+            <!-- Links to different sections/pages -->
+            <a href="#overview">Overview</a>
+            <a href="#application-parts">Application Parts</a>
+            <a href="#data-requirements">Data Requirements</a>
+            <a href="#wire-frames">Wire Frames</a>
+            <a href="#real-world">Real World</a>
+            <a href="#integrative-experience">Integrative Experience</a>
+        </nav>
 
-            </h1>
+        <div id="vision" class="vision">
+            <h1>Amherst Eats: ending the cycle of “I don’t care, you pick”</h1>
         </div>
 
     </header>
     <section>
-        <div id = "team">
-            <h2>
-
-            </h2>
+        <div id = "team" class="team">
+            <h2>Team Hungry: </h2>
+            <div class="grid-container" id="grid">
+                <div>
+                    <img src="https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg" class="member-pic">
+                    <p class="member-name"> Nikita Singh</p>
+                    <p class="member-info">
+                        Hi! My name is Nikita Singh and I’m a senior studying CS and pure math. Most of my experience is coding in Python, JavaScript, HTML (+ react), Java, but I have been exposed to a variety of different languages through work. I am also comfortable using github and working on shared codebases which should be helpful for this project. l have recently been taking fewer coding classes (mostly theory and math) so it is nice to get back into it before graduating. I have two cats back home in Seattle (Kit-Kat and Peanut) and I miss them! 
+                    </p>
+                </div>
+                <div>
+                    <img src="https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg" class="member-pic">
+                    <p class="member-name"> Chris Sampson</p>
+                    <p class="member-info">
+                        I’m Chris, I’m a CS major senior who took a gap year and this is my first semester back. I have experience with Java, Javascript, HTML, CSS, python, and C++. My skills are a little bit rusty so I’ll need to relearn those skills. I have 3 cats and two dogs. My cats’ names are George, Bella and Oliver and my dogs are Milo and Millie. I love them very much :)
+                    </p>
+                </div>
+                <div>
+                    <img src="https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg" class="member-pic">
+                    <p class="member-name"> Miranda Zhang</p>
+                    <p class="member-info">
+                        Hi everyone! My name is Miranda Zhang, and I am a senior studying computer science. I am from Seattle, WA, and love hiking and climbing, as well as crocheting and playing games (board games and video games alike!). I am proficient in JavaScript, Python, and Java, and have experience coding in C, C++, SQL, GraphQL, HTML, and R. Professionally, I have some background in full stack development and database development in SQLServer. I wish I had pets but maybe in the future! :)
+                    </p>
+                </div>
+                <div>
+                    <img src="https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg" class="member-pic">
+                    <p class="member-name"> Shelly Singhal</p>
+                    <p class="member-info">
+                        Hello! My name is Shelly Singhal and I am currently a senior pursuing a dual-degree in Operations and Information Managament as well as Informatics. Throughout my time at UMass I have been exposed to a variety of different languages including Java, Python, R, JavaScript, SQL, HTML, and CSS. I am also proficient in tools such as Tableau and GIS. My professional interests lie at the intersection of sustainability, business, and data science to help transition corporations toward greener and environmentally conscious practices. No pets :(
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
-    <nav>
-        <!-- Links to different sections/pages -->
-    </nav>
 
     <main>
         <!-- Main content of the document -->
-        <div id = "overview">
-            <h2>
-
-            </h2>
+        <div id = "overview"> 
+            <h2>Overview</h2>
+            <p>
+                This project aims to improve the experience of finding a place to eat near UMass. As students here, we have all had the internal debate over going to the dining hall, a go-to restaurant nearby, or finally trying something new. Even though a restaurant is a “go-to” for a reason, sometimes it can be worth it to try a new place. There are a lot of really good restaurants in the area, but it can be difficult to identify which one to try next, which is something we aim to help with. Although Google is helpful for finding restaurants, our website prioritizes the information important to students and will ideally be a more central location for finding restaurants. By including a database, quiz, and map, the site is multi-functional and will allow users with any number of expectations to find the information they care about. Generally, the website will make choosing a place to eat into an enjoyable activity rather than a daily struggle.
+            </p>
         </div>
 
         <div id = "application-parts">
-            <h2>
-                
-            </h2>
+            <h2>Application Parts</h2>
+            <p> Food Mood Quiz: <br>
+                The quiz functionality is the core component of the application, serving as the initial point of interaction for users to narrow down their dining options in Amherst. This feature prompts users to input their preferences regarding the cuisine type, ambiance, novelty, pricing, meal time, and more in order to provide a tailored recommendation to their desires. By analyzing the user’s responses and cross-referencing the restaurant database, the Food Mood quiz suggests a curated list of top 3 options that are most relevant to the user. This component streamlines the decision making process and also eases the burden of self-research that more often than not falls upon the user’s shoulders.
+            </p>
+            <p> Amherst Eats General Database: <br>
+                The database serves as the backbone of the application, housing comprehensive information about the various restaurants and eateries in Amherst. This includes cuisine type, ambiance, novelty, pricing, reviews, and more. This component acts as a repository of food establishment knowledge for the quiz to provide accurate and relevant recommendations to the user. It also serves as a general information dataset with filtering capabilities for users that want to take a look at all of their options. The database will be continuously updated with new information, new places opening, and user feedback to ensure the web application remains up to date and reflective of the local food retail landscape in Amherst. 
+            </p>
+            <p> The Map: <br>
+                The final component of the web application is the map, a cute visual representation of the restaurant locations in Amherst. This feature offers the user an immersive experience where they can visually explore the proximity of restaurants to their current location or designated area. By incorporating color-coded markers of symbols to denote different cuisine types or ratings, the map enhances usability and comprehension to compare food options.
+            </p>
         </div>
         <div id = "data-requirements">
-            <h2>
-                
-            </h2>
+            <h2>Data Requirements</h2>
+            <p>
+                Introduction: The success of our application relies heavily on the management and utilization of diverse data types to deliver a seamless and personalized dining experience for users in Amherst. By carefully structuring and categorizing the data, we can ensure that our application effectively captures and responds to user preferences, ultimately facilitating informed decision-making when it comes to selecting a restaurant. Here, we outline the key data requirements that form the foundation of our application's functionality and user experience.
+            </p>
+            <p>
+                Cuisine Data: Central to our application is the categorization and classification of cuisine types offered by restaurants in Amherst. This data category encompasses a wide range of culinary styles, including but not limited to Italian, Asian, American, and Mexican. Each cuisine type serves as a key attribute for filtering and recommending restaurants based on user preferences, ensuring that the application can accurately match users with dining options that align with their tastes.
+            </p>
+            <p>
+                Location Data: Accurate location data is essential for enabling users to identify nearby dining options and navigate the Amherst area effectively. This data category includes geographical coordinates, addresses, and proximity information for each restaurant in the database. By leveraging location data, our application can provide users with intuitive map-based functionalities, such as locating restaurants in their vicinity, calculating distances, and generating directions to selected establishments.
+            </p>
+            <p>
+                Pricing Data: Understanding the pricing range of restaurants is crucial for helping users make informed decisions based on their budgetary constraints. This data category encompasses various price tiers, ranging from budget-friendly options to upscale dining experiences. By incorporating pricing data into our application, we empower users to filter restaurant recommendations based on their desired price range, ensuring that they can find dining options that fit their financial preferences.
+            </p>
+            <p>
+                Review Data: User-generated reviews and ratings play a vital role in shaping the overall perception and reputation of restaurants within the application. This data category includes qualitative feedback, numerical ratings, and sentiment analysis derived from user reviews. By aggregating and analyzing review data, our application can provide users with valuable insights into the quality and customer satisfaction levels associated with each restaurant, helping them make more informed dining choices. However, until the app is up and running and sufficient feedback can be collected from users, we may explore getting data from a 3rd party such as yelp or google reviews. 
+            </p>
+            <p>
+                Conclusion: In conclusion, our application relies on a comprehensive dataset comprising cuisine types, location information, pricing details, and user-generated reviews to deliver a tailored and intuitive dining experience for users in Amherst. By effectively managing and utilizing these data types, we can ensure that our application provides users with relevant recommendations and facilitates seamless navigation and decision-making within the local dining landscape.
+            </p>
         </div>
         <div id = "wire-frames">
-            <h2>
-                
-            </h2>
+            <h2>Wire Frames</h2>
+            <p>
+                content
+            </p>
         </div>
         <div id = "real-world">
-            <h2>
-                
-            </h2>
+            <h2>Real World</h2>
+            <p>
+                Newer generations often have issues regarding decision making. In today’s world, this abundance of choices has led to decision fatigue, where individuals may feel overwhelmed. Specifically, students and professors may not want to go out and pick a different place to eat after a long day of making important decisions - they may stick with something they are familiar with. Additionally, the rise of corporations, such as restaurant chains, has strained community bonds, particularly impacting businesses like the mom and pop shops abundant in Amherst Center. According to Forbes, as of October 2017, there were more than 480,900 total independent restaurants in the United States, which makes up 68% of the U.S. restaurant landscape. However, these independent restaurants, which are the backbone of so many of our communities, have been struggling to keep up, especially after the pandemic. 
+            </p>
+            <p>
+                Our website not only addresses this decision fatigue, but also fosters local community engagement by supporting these local businesses, contributing to sustainability and a sense of community. In particular, our website provides personalized recommendations through a quiz tab, which allows users to input their preferences in a fun and easy manner. Some questions that may be asked include what kind of cuisine, if it is casual or romantic, or if they are looking for a trendy new spot. These questions attempt to promote independent restaurants, foster a sense of community, and make decision-making simple.
+            </p>
         </div>
         <div id = "integrative-experience">
-            <h2>
-                
-            </h2>
+            <h2>Intergrative Experience</h2>
+            <p>
+                Many of the students in our group are from bigger cities, which often feel more corporate, with less of a sense of community. Amherst Center and its surrounding restaurants, to many of us, feels like the heart and soul of Amherst, where diverse restaurants reside. It is a place to relax, study, or spend time with friends. We also discussed how Amherst Center has so many restaurants some of us had not even tried, despite visiting all the time. This inspired us to create a tool that has better restaurant discoverability than Google Maps or Yelp, as well as a more student-friendly quality to it. This may mean having an interactive handmade map, sorting by neighborhood when looking for directions, or having a user interface that appeals to young adults. Additionally, we wanted to use our skills we have used in previous courses, such as data structures, as well as search engines, to create this website. For example, we will have some kind of hashmap or arrayList to store data regarding restaurant information. We also may have a search bar/filtering mechanism for our general database. Students who took the search engines elective learned how to tokenize words for a search bar, so this skill may be used. 
+            </p>
         </div>
         
     </main>
