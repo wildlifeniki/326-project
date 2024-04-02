@@ -18,7 +18,7 @@
   "bugs": "",
   "keywords": [],
   "author": {
-    "name": "[team name]",
+    "name": "Hungry",
     "email": "",
     "url": "https://github.com/wildlifeniki/326-project"
   },
@@ -34,21 +34,22 @@
       "url": "https://github.com/Christopher-Sampson"
     },
     {
-      "name": "name",
-      "email": "email",
-      "url": "github"
+      "name": "Miranda Zhang",
+      "email": "mbzhang@umass.edu",
+      "url": "https://github.com/mzhang02"
     },
     {
-      "name": "name",
-      "email": "email",
-      "url": "github"
+      "name": "Shelly Singhal",
+      "email": "shellsinghal@umass.edu",
+      "url": "https://github.com/ssinghal-02"
     }
   ],
   "scripts": {
     "dev": "",
     "test": "",
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
-    "validate-html": "html-validate 'src/**/*.html'"
+    "validate-html": "html-validate 'src/**/*.html'",
+    "prettier": "prettier src —write"
   },
   "devDependencies": {
     "html-validate": "^8.18.1",

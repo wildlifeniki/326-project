@@ -65,7 +65,7 @@ function dynamicCounter(){
     counter = counter + 1;
 }
 const counterElem = document.getElementById("counter");
-counterElem.createTextNode(counter);
+counterElem.createTextNode(counter); // it's mad about this for some reason
 let button = document.createElement("input");
 button.type = "button";
 button.addEventListener("click", dynamicCounter);
