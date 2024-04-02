@@ -54,5 +54,8 @@
     "html-validate": "^8.18.1",
     "http-server": "^14.1.1",
     "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "g": "^2.0.1"
   }
 }
