@@ -82,3 +82,7 @@ p{
   background-color: #ddd;
   color: black;
 }
+
+.wireframe {
+  height: 600px;
+}

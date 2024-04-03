@@ -27,9 +27,9 @@ for (let i = 0; i < array.length; i++) {
 
 let image_i = 0
 const images = [
-    "https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg 1",
-    "https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg 2",
-    "https://github.com/emeryberger/web-programming/raw/master/decoder-ring.jpg 3"
+    "wireframe1.png",
+    "wireframe2.png",
+    "wireframe3.png"
 ]
 function cycle() {
     let current = document.getElementById("wireframe-img");
@@ -37,7 +37,7 @@ function cycle() {
     if (image_i >= images.length) {
         image_i = 0
     }
-    current.value = images[image_i];
+    current.src = images[image_i];
     console.log(current.value)
 }
 
