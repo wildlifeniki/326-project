@@ -27,10 +27,11 @@ p{
 }
 
 .member-pic {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 0px 8px;
 }
-
 
 .borderbox{
   border: 1px dashed cadetblue;
