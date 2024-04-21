@@ -183,9 +183,8 @@ h2.fw-normal {
 .carousel-caption {
   top: 50%; /* Position the caption 50% from the top */
   transform: translateY(-50%); /* Move the caption up by 50% of its own height */
-}
 
-/* Optionally, you can also center the text horizontally */
+}
 .carousel-caption h1 {
   text-align: center;
 }
