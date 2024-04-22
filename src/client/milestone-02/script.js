@@ -10,6 +10,11 @@ const navMap = document.getElementById("navMap");
 const quizButton = document.getElementById("quizButton");
 const restaurantsButton = document.getElementById("restaurantsButton");
 const mapButton = document.getElementById("mapButton");
+const sortByName = document.getElementById("sortByName");
+const sortByPrice = document.getElementById("sortByPrice");
+const sortByLocation = document.getElementById("sortByLocation");
+const sortByGenre = document.getElementById("sortByGenre");
+
 
 contentDiv.innerHTML = "";
 let currentNav = navHome;
@@ -68,4 +73,99 @@ if (document.URL.includes("quiz")) {
 } else {
     goHome();
 }
-
+function sortTableByName(){
+    let table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("table");
+  switching = true;
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[0];
+          y = rows[i + 1].getElementsByTagName("TD")[0];
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+        }
+  }
+  
+}
+function sortTableByPrice(){
+    let table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("table");
+  switching = true;
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[1];
+          y = rows[i + 1].getElementsByTagName("TD")[1];
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+        }
+  }
+  
+}
+function sortTableByGenre(){
+    let table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("table");
+  switching = true;
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[2];
+          y = rows[i + 1].getElementsByTagName("TD")[2];
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+        }
+  }
+  
+}
+function sortTableByLocation(){
+    let table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("table");
+  switching = true;
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[3];
+          y = rows[i + 1].getElementsByTagName("TD")[3];
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+        }
+  }
+  
+}
+sortByName.addEventListener("click", sortTableByName);
+sortByPrice.addEventListener("click", sortTableByPrice);
+sortByGenre.addEventListener("click", sortTableByGenre);
+sortByLocation.addEventListener("click", sortTableByLocation);
