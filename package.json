@@ -1,0 +1,64 @@
+{
+  "name": "Amherst Eats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "keywords": [],
+  "author": {
+    "name": "Hungry",
+    "email": "",
+    "url": "https://github.com/wildlifeniki/326-project"
+  },
+  "contributors": [
+    {
+      "name": "Nikita Singh",
+      "email": "nrsingh@umass.edu",
+      "url": "https://github.com/wildlifeniki"
+    },
+    {
+      "name": "Chris Sampson",
+      "email": "cjsampson@umass.edu",
+      "url": "https://github.com/Christopher-Sampson"
+    },
+    {
+      "name": "Miranda Zhang",
+      "email": "mbzhang@umass.edu",
+      "url": "https://github.com/mzhang02"
+    },
+    {
+      "name": "Shelly Singhal",
+      "email": "shellsinghal@umass.edu",
+      "url": "https://github.com/ssinghal-02"
+    }
+  ],
+  "scripts": {
+    "dev": "",
+    "test": "",
+    "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
+    "milestone-02": "http-server src/client/milestone-02 -p 3000 -c-1 -o -s",
+    "validate-html": "html-validate 'src/**/*.html'",
+    "prettier": "prettier src —write"
+  },
+  "devDependencies": {
+    "html-validate": "^8.18.1",
+    "http-server": "^14.1.1",
+    "jsdoc": "^4.0.2",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "g": "^2.0.1"
+  }
+}
