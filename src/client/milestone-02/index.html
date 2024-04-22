@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head> 
+    <!-- PouchDB -->
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- to change fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
+    <script type="module" src="script.js" defer></script>
+  </head>
+    
+<header data-bs-theme="light-theme">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-navbar">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a id="navHome" class="nav-link" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a id="navQuiz" class="nav-link" aria-current="page" href="#quiz">Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a id="navRestaurants" class="nav-link" aria-current="page" href="#restaurants">Restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a id="navMap" class="nav-link" aria-current="page" href="#map">Map</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div id="content">
+
+    <div id="home">
+
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+              <image href="https://github.com/wildlifeniki/326-project/blob/main/HomeBG.png?raw=true" width="100%" height=auto />
+            </svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Amherst Eats</h1>
+                <p>Ending the cycle of “I don’t care, you pick”</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container marketing">
+        <div class="row">
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+              <image href="https://github.com/wildlifeniki/326-project/blob/main/homequizlogo.png?raw=true" width="100%" height="100%" />
+            </svg>
+            <h2 class="fw-normal">Food Mood Quiz</h2>
+            <p>Unveil Your Culinary Destiny!</p>
+            <p><a id="quizButton" class="btn btn-secondary" href="#quiz">Quiz &raquo;</a></p>
+          </div>
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+              <image href="http.s://github.com/wildlifeniki/326-project/blob/main/homeDBlogo.png?raw=true" width="100%" height="100%" />
+            </svg>
+            <h2 class="fw-normal">Restaurants</h2>
+            <p>Gourmet Guide: Your Gateway to Delicious Destinations.</p>
+            <p><a id="restaurantsButton" class="btn btn-secondary" href=#restaurants>Restaurants &raquo;</a></p>
+          </div>
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+              <image href="https://github.com/wildlifeniki/326-project/blob/main/HomeMapLogo.png?raw=true" width="100%" height="100%" />
+            </svg>
+            <h2 class="fw-normal">Map</h2>
+            <p>Savor Seeker's Map: Navigating the World of Flavor</p>
+            <p><a id="mapButton" class="btn btn-secondary" href=#map>Map &raquo;</a></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="quiz" >
+
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" display>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Quiz</h1>
+                <p>quiz description stuff</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container marketing">
+          <div>
+            <h2 class="fw-normal">Quiz</h2>
+            <p>quiz content here</p>
+          </div>
+      </div><!-- /.container -->
+      
+    </div>
+
+    <div id="restaurants" >
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Restaurants</h1>
+                <!--<p>restaurant database description stuff</p>-->
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container marketing">
+          <div>
+            <h2 class="fw-normal">Restaurants</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <button type="button">Sort By Name</button> 
+                  <th scope="row">1</th>
+                  <td>Johnny's Tavern</td>
+                  <td>$$</td>
+                  <td>30 Boltwood Walk, Amherst, MA 01002</td>
+                </tr>
+                <tr>
+                  <button type="button">Sort By Price</button> 
+                  <th scope="row">2</th>
+                  <td>Fresh Side</td>
+                  <td>$</td>
+                  <td>39 S Pleasant St, Amherst, MA 01002</td>
+                </tr>
+                <tr>
+                  <button type="button">Sort By Location</button> 
+                  <th scope="row">3</th>
+                  <td>Bistro 63</td>
+                  <td>$$</td>
+                  <td>63 N Pleasant St, Amherst, MA 01002</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+    </div>
+
+    <div id="map" >
+
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Map</h1>xx
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="container marketing">
+          <div>
+            <h2 class="fw-normal">Map</h2>
+            <img src="Map.png" class="member-pic" alt="photo">
+          </div>
+      </div>
+     
+      
+    </div>
+
+  </div>
+
+
+  <!-- PouchDB script -->
+  <script>
+    //PouchDB db initialize
+    var db = new PouchDB('restaurants');    
+
+    //add restaurant to the database
+    function addRestaurant(id, name, location) {
+      console.log('Adding restaurant:', id, name, location);
+      return db.put({
+        _id: id,
+        name: name,
+        location: location
+      }).then(function(response) {
+        console.log('Restaurant added:', response);
+        return response;
+      }).catch(function(err) {
+        console.error('Error adding restaurant:', err);
+        throw err;
+      });
+    }
+
+    //retrieve restaurant from the database
+    function getRestaurant(id) {
+      console.log('Retrieving restaurant:', id);
+      return db.get(id).then(function(doc) {
+        console.log('Retrieved restaurant:', doc);
+        return doc;
+      }).catch(function(err) {
+        console.error('Error retrieving restaurant:', err);
+        throw err;
+      });
+    }
+
+    //delete restaurant from the database
+    function deleteRestaurant(id) {
+      console.log('Deleting restaurant:', id);
+      return db.get(id).then(function(doc) {
+        return db.remove(doc);
+      }).then(function(response) {
+        console.log('Restaurant deleted:', response);
+        return response;
+      }).catch(function(err) {
+        console.error('Error deleting restaurant:', err);
+        throw err;
+      });
+    }
+
+
+    //update a document in the database
+    function updateRestaurant(id, name, location) {
+      console.log('Updating restaurant:', id);
+      return db.get(id).then(function(doc) {
+        doc.name = name;
+        doc.location = location;
+        return db.put(doc);
+      }).then(function(response) {
+        console.log('Restaurant updated:', response);
+        return response;
+      }).catch(function(err) {
+        console.error('Error updating restaurant:', err);
+        throw err;
+      });
+    }
+
+    //function calls for testing
+    // addRestaurant('1', 'Restaurant', 'Location');
+    // getRestaurant('1');
+    // deleteRestaurant('1');
+
+    //function calls to get info on database
+    // db.info().then(function (info) {
+    //   console.log(info);
+    // })
+      
+  </script>
+  
+</main>
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>
