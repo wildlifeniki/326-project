@@ -1,5 +1,6 @@
 export class Filter{
     #restaurants;
+    //in the future we would send database into constructor parameters, then we would parse that database in array of restraunt objects, so we can filter
     constructor(){
         this.#restaurants = [];
         this.#restaurants.push({name:"Johnny's Tavern", genre: "pub", price:"$$", location: "East Amherst", score:0});
