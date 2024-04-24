@@ -275,16 +275,18 @@
       <div class="container marketing map-buttons">
         <div>
           <h2 class="fw-normal">Map</h2>
-          <img src="Map.png" class="member-pic" alt="photo">
-          <button class="btn1">Button1</button>
-          <button class="btn2">Button2</button>
-          <button class="btn3">Button3</button>
-          <button class="btn4">Button4</button>
-          <button class="btn5">Button5</button>
-          <button class="btn6">Button6</button>
-          <button class="btn7">Button7</button>
-          <button class="btn8">Button8</button>
-          <button class="btn9">Button9</button>
+          <img id="map" src="Map.png" class="member-pic" alt="photo" width="80%" height="auto">
+          
+          <button class="button-map btn1" role="button">Lili's</button>
+          <button class="button-map btn2" role="button">Miss Saigon</button>
+          <button class="button-map btn3" role="button">Chicken & Kebab</button>
+          <button class="button-map btn4" role="button">Johnny's Diner</button>
+          <button class="button-map btn5" role="button">Protocol</button>
+          <button class="button-map btn6" role="button">House of Teriyaki</button>
+          <button class="button-map btn7" role="button">Woo</button>
+          <button class="button-map btn8" role="button">Frank</button>
+          <button class="button-map btn9" role="button">Hamp/Berk</button> 
+          
         </div>
       </div>
      
@@ -293,82 +295,6 @@
 
   </div>
 
-
-  <!-- PouchDB script -->
-  <script>
-    //PouchDB db initialize
-    var db = new PouchDB('restaurants');    
-
-    //add restaurant to the database
-    function addRestaurant(id, name, location) {
-      console.log('Adding restaurant:', id, name, location);
-      return db.put({
-        _id: id,
-        name: name,
-        location: location
-      }).then(function(response) {
-        console.log('Restaurant added:', response);
-        return response;
-      }).catch(function(err) {
-        console.error('Error adding restaurant:', err);
-        throw err;
-      });
-    }
-
-    //retrieve restaurant from the database
-    function getRestaurant(id) {
-      console.log('Retrieving restaurant:', id);
-      return db.get(id).then(function(doc) {
-        console.log('Retrieved restaurant:', doc);
-        return doc;
-      }).catch(function(err) {
-        console.error('Error retrieving restaurant:', err);
-        throw err;
-      });
-    }
-
-    //delete restaurant from the database
-    function deleteRestaurant(id) {
-      console.log('Deleting restaurant:', id);
-      return db.get(id).then(function(doc) {
-        return db.remove(doc);
-      }).then(function(response) {
-        console.log('Restaurant deleted:', response);
-        return response;
-      }).catch(function(err) {
-        console.error('Error deleting restaurant:', err);
-        throw err;
-      });
-    }
-
-
-    //update a document in the database
-    function updateRestaurant(id, name, location) {
-      console.log('Updating restaurant:', id);
-      return db.get(id).then(function(doc) {
-        doc.name = name;
-        doc.location = location;
-        return db.put(doc);
-      }).then(function(response) {
-        console.log('Restaurant updated:', response);
-        return response;
-      }).catch(function(err) {
-        console.error('Error updating restaurant:', err);
-        throw err;
-      });
-    }
-
-    //function calls for testing
-    // addRestaurant('1', 'Restaurant', 'Location');
-    // getRestaurant('1');
-    // deleteRestaurant('1');
-
-    //function calls to get info on database
-    // db.info().then(function (info) {
-    //   console.log(info);
-    // })
-      
-  </script>
   
 </main>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
