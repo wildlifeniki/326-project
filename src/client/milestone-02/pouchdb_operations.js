@@ -2,8 +2,8 @@
 var db = new PouchDB('restaurants');
 
 document.addEventListener("DOMContentLoaded", function() {
-    //array of restaurant objects, include _id required id
-    //add and deleted restaurants as required, or use functions above
+    //array of restaurant objects
+    //add and delete restaurants as required by modifying table, or use functions above
     const restaurantsToAdd = [
         { _id: 'restaurant1', name: "Johnny's Tavern", genre: "pub", price: "$$", location: "East Amherst", score: 0 },
         { _id: 'restaurant2', name: "Fresh Side", genre: "deli", price: "$", location: "West Amherst", score: 0 },
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     //add a restaurant to PouchDB database
-    //note: not the same as addRestaurant function
+    //note: not the same as addRestaurant function, for in file adding
     function addRestaurantToDB(restaurant) {
         console.log('Adding restaurant:', restaurant.name);
         return db.put(restaurant)
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-//functions to retrieve or modify database
+//functions to retrieve or modify database, not as important to understand
 
 //add restaurant to the database
 function addRestaurant(id, name, genre, price, location) {
@@ -105,7 +105,7 @@ function updateRestaurant(id, name, genre, price, location) {
 }
 
 
-//function calls to get info on database
+//function calls to get info on database, put in console 
 // db.info().then(function (info) {
 //   console.log(info);
 // })
