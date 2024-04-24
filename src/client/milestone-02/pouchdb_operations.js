@@ -1,14 +1,56 @@
 //PouchDB db initialize
 var db = new PouchDB('restaurants');
 
+document.addEventListener("DOMContentLoaded", function() {
+    //array of restaurant objects, include _id required id
+    //add and deleted restaurants as required, or use functions above
+    const restaurantsToAdd = [
+        { _id: 'restaurant1', name: "Johnny's Tavern", genre: "pub", price: "$$", location: "East Amherst", score: 0 },
+        { _id: 'restaurant2', name: "Fresh Side", genre: "deli", price: "$", location: "West Amherst", score: 0 },
+        { _id: 'restaurant3', name: "Bistro 63", genre: "grill", price: "$$", location: "Central Amherst", score: 0 }
+    ];
+
+    //add a restaurant to PouchDB database
+    //note: not the same as addRestaurant function
+    function addRestaurantToDB(restaurant) {
+        console.log('Adding restaurant:', restaurant.name);
+        return db.put(restaurant)
+            .then(function (response) {
+                console.log('Restaurant added:', response);
+                return response;
+            })
+            .catch(function (err) {
+                console.error('Error adding restaurant:', err);
+                throw err;
+            });
+    }
+
+    //add all restaurants to PouchDB database
+    function addRestaurantsToDB(restaurants) {
+        return Promise.all(restaurants.map(restaurant => addRestaurantToDB(restaurant)));
+    }
+    addRestaurantsToDB(restaurantsToAdd)
+        .then(() => {
+            console.log('All restaurants added to the database successfully.');
+        })
+        .catch(err => {
+            console.error('Error adding restaurants to the database:', err);
+        });
+});
+
+
+//functions to retrieve or modify database
+
 //add restaurant to the database
-function addRestaurant(id, name, location) {
-    console.log('Adding restaurant:', id, name, location);
+function addRestaurant(id, name, genre, price, location) {
+    console.log('Adding restaurant:', id, name, genre, price, location);
     return db.put({
         _id: id,
         name: name,
+        genre: genre,
+        price: price,
         location: location
-    }).then(function (resSponse) {
+    }).then(function (response) {
         console.log('Restaurant added:', response);
         return response;
     }).catch(function (err) {
@@ -45,10 +87,12 @@ function deleteRestaurant(id) {
 
 
 //update a document in the database
-function updateRestaurant(id, name, location) {
+function updateRestaurant(id, name, genre, price, location) {
     console.log('Updating restaurant:', id);
     return db.get(id).then(function (doc) {
         doc.name = name;
+        doc.genre = genre;
+        doc.price = price;
         doc.location = location;
         return db.put(doc);
     }).then(function (response) {
@@ -60,12 +104,9 @@ function updateRestaurant(id, name, location) {
     });
 }
 
-//function calls for testing
-// addRestaurant('1', 'Restaurant', 'Location');
-// getRestaurant('1');
-// deleteRestaurant('1');
 
 //function calls to get info on database
 // db.info().then(function (info) {
 //   console.log(info);
 // })
+
