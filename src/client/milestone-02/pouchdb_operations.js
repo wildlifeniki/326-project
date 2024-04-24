@@ -1,7 +1,7 @@
 //PouchDB db initialize
 export var db = new PouchDB('restaurants');
 
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", async function () {
     //array of restaurant objects
     //add and delete restaurants as required by modifying table, or use functions above
     const restaurantsToAdd = [

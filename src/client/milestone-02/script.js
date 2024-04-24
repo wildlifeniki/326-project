@@ -1,4 +1,4 @@
-import { db, getRestaurant} from './pouchdb_operations.js'; // Assuming you export your PouchDB instance from pouchdb_operations.js
+import { db, getRestaurant } from './pouchdb_operations.js'; // Assuming you export your PouchDB instance from pouchdb_operations.js
 
 
 const homeDiv = document.getElementById("home");
@@ -67,7 +67,7 @@ mapButton.addEventListener("click", goMap);
 
 // map buttons
 
-// before fixing server stuff
+// before fixing server issues, local storage for map only
 const restaurants = [
     { _id: '1', name: "Lili's", genre: "pub", price: "$$", location: "East Amherst", score: 0 },
     { _id: '2', name: "Miss Saigon", genre: "deli", price: "$", location: "West Amherst", score: 0 },
@@ -81,15 +81,13 @@ const restaurants = [
 ]
 
 if (restaurantDisplay !== null) {
-
     restaurantDisplay.innerHTML = `
-    <table style="width:200px; text-align: center;" class="borderbox">
-        <tr>
-            <td class="h4" colspan="2">Click on the map to discover restaurants!</td>
-        </tr>
-    </table>
-        `
-
+        <table style="width:200px; text-align: center;" class="borderbox">
+            <tr>
+                <td class="h4" colspan="2">Click on the map to discover restaurants!</td>
+            </tr>
+        </table>
+    `
     for (let i = 1; i <= 9; i++) {
         let buttonId = "btn".concat(i)
         const restaurantOnMapButton = document.getElementById(buttonId);
@@ -137,97 +135,97 @@ if (restaurantDisplay !== null) {
 
 // restaurant database sorting
 
-function sortTableByName(){
+function sortTableByName() {
     let table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("table");
-  switching = true;
+    table = document.getElementById("table");
+    switching = true;
     while (switching) {
         switching = false;
         rows = table.rows;
         for (i = 1; i < (rows.length - 1); i++) {
-          shouldSwitch = false;
-          x = rows[i].getElementsByTagName("TD")[0];
-          y = rows[i + 1].getElementsByTagName("TD")[0];
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[0];
+            y = rows[i + 1].getElementsByTagName("TD")[0];
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
         }
         if (shouldSwitch) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
         }
-  }
-  
+    }
+
 }
-function sortTableByPrice(){
+function sortTableByPrice() {
     let table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("table");
-  switching = true;
+    table = document.getElementById("table");
+    switching = true;
     while (switching) {
         switching = false;
         rows = table.rows;
         for (i = 1; i < (rows.length - 1); i++) {
-          shouldSwitch = false;
-          x = rows[i].getElementsByTagName("TD")[1];
-          y = rows[i + 1].getElementsByTagName("TD")[1];
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[1];
+            y = rows[i + 1].getElementsByTagName("TD")[1];
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
         }
         if (shouldSwitch) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
         }
-  }
-  
+    }
+
 }
-function sortTableByGenre(){
+function sortTableByGenre() {
     let table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("table");
-  switching = true;
+    table = document.getElementById("table");
+    switching = true;
     while (switching) {
         switching = false;
         rows = table.rows;
         for (i = 1; i < (rows.length - 1); i++) {
-          shouldSwitch = false;
-          x = rows[i].getElementsByTagName("TD")[2];
-          y = rows[i + 1].getElementsByTagName("TD")[2];
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[2];
+            y = rows[i + 1].getElementsByTagName("TD")[2];
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
         }
         if (shouldSwitch) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
         }
-  }
-  
+    }
+
 }
-function sortTableByLocation(){
+function sortTableByLocation() {
     let table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("table");
-  switching = true;
+    table = document.getElementById("table");
+    switching = true;
     while (switching) {
         switching = false;
         rows = table.rows;
         for (i = 1; i < (rows.length - 1); i++) {
-          shouldSwitch = false;
-          x = rows[i].getElementsByTagName("TD")[3];
-          y = rows[i + 1].getElementsByTagName("TD")[3];
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[3];
+            y = rows[i + 1].getElementsByTagName("TD")[3];
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
         }
         if (shouldSwitch) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
         }
-  }
-  
+    }
+
 }
 sortByName.addEventListener("click", sortTableByName);
 sortByPrice.addEventListener("click", sortTableByPrice);
