@@ -16,9 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 
     <!-- Include the external PouchDB script -->
-    <script src="pouchdb_operations.js" defer></script>
-
-    <script type="module" src="script.js" defer></script>
+    <script type="module" src="script.js"  defer></script>
   </head>
     
 <header data-bs-theme="light-theme">
@@ -271,27 +269,37 @@
         </div>
       </div>
 
+      <div class="container" id="restaurant-display">
+        <table style="width:200px; text-align: center;" class="borderbox">
+          <tr>
+              <td class="h4" colspan="2">Click on the map to discover restaurants!</td>
+          </tr>
+      </table>
+      </div>
+
+      <br>
      
       <div class="container marketing map-buttons">
         <div>
           <h2 class="fw-normal">Map</h2>
-          <img id="map" src="Map.png" class="member-pic" alt="photo" width="80%" height="auto">
+          <img id="map" src="Map.png" class="member-pic borderbox" alt="photo" width="80%" height="auto">
           
-          <button class="button-map btn1" role="button">Lili's</button>
-          <button class="button-map btn2" role="button">Miss Saigon</button>
-          <button class="button-map btn3" role="button">Chicken & Kebab</button>
-          <button class="button-map btn4" role="button">Johnny's Diner</button>
-          <button class="button-map btn5" role="button">Protocol</button>
-          <button class="button-map btn6" role="button">House of Teriyaki</button>
-          <button class="button-map btn7" role="button">Woo</button>
-          <button class="button-map btn8" role="button">Frank</button>
-          <button class="button-map btn9" role="button">Hamp/Berk</button> 
+          <button class="button-map" id="btn1" role="button">Lili's</button>
+          <button class="button-map" id="btn2" role="button">Miss Saigon</button>
+          <button class="button-map" id="btn3" role="button">Chicken & Kebab</button>
+          <button class="button-map" id="btn4" role="button">Johnny's Diner</button>
+          <button class="button-map" id="btn5" role="button">Protocol</button>
+          <button class="button-map" id="btn6" role="button">House of Teriyaki</button>
+          <button class="button-map" id="btn7" role="button">Woo</button>
+          <button class="button-map" id="btn8" role="button">Frank</button>
+          <button class="button-map" id="btn9" role="button">Hamp/Berk</button> 
           
         </div>
       </div>
      
       
     </div>
+
 
   </div>
 

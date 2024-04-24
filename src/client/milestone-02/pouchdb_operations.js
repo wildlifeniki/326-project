@@ -1,13 +1,13 @@
 //PouchDB db initialize
-var db = new PouchDB('restaurants');
+export var db = new PouchDB('restaurants');
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     //array of restaurant objects
     //add and delete restaurants as required by modifying table, or use functions above
     const restaurantsToAdd = [
-        { _id: 'restaurant1', name: "Johnny's Tavern", genre: "pub", price: "$$", location: "East Amherst", score: 0 },
-        { _id: 'restaurant2', name: "Fresh Side", genre: "deli", price: "$", location: "West Amherst", score: 0 },
-        { _id: 'restaurant3', name: "Bistro 63", genre: "grill", price: "$$", location: "Central Amherst", score: 0 }
+        { _id: '1', name: "Johnny's Tavern", genre: "pub", price: "$$", location: "East Amherst", score: 0 },
+        { _id: '2', name: "Fresh Side", genre: "deli", price: "$", location: "West Amherst", score: 0 },
+        { _id: '3', name: "Bistro 63", genre: "grill", price: "$$", location: "Central Amherst", score: 0 }
     ];
 
     //add a restaurant to PouchDB database
@@ -60,7 +60,7 @@ function addRestaurant(id, name, genre, price, location) {
 }
 
 //retrieve restaurant from the database
-function getRestaurant(id) {
+export function getRestaurant(id) {
     console.log('Retrieving restaurant:', id);
     return db.get(id).then(function (doc) {
         console.log('Retrieved restaurant:', doc);
@@ -72,7 +72,7 @@ function getRestaurant(id) {
 }
 
 //delete restaurant from the database
-function deleteRestaurant(id) {
+export function deleteRestaurant(id) {
     console.log('Deleting restaurant:', id);
     return db.get(id).then(function (doc) {
         return db.remove(doc);
@@ -87,7 +87,7 @@ function deleteRestaurant(id) {
 
 
 //update a document in the database
-function updateRestaurant(id, name, genre, price, location) {
+export function updateRestaurant(id, name, genre, price, location) {
     console.log('Updating restaurant:', id);
     return db.get(id).then(function (doc) {
         doc.name = name;
