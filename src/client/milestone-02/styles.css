@@ -327,3 +327,8 @@ fieldset {
   padding: 4px;
   margin: 1px auto;
 }
+
+.btn.btn-primary {
+  background-color: #89CFF0;
+  /* You can add more styles here if needed */
+}
