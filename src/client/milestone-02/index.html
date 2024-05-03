@@ -139,12 +139,16 @@
           <form id="foodMoodForm">
             <fieldset>
               <legend>What type of cuisine are you thinking?</legend>
+              <input type="radio" id="anycuisine" name="cuisine" value="anycuisine">
+              <label for="anycuisine">Down for anything!</label>
               <input type="radio" id="italian" name="cuisine" value="italian">
               <label for="italian">Italian: pasta, pizza, give me something from the Romans</label><br>
               <input type="radio" id="mexican" name="cuisine" value="mexican">
               <label for="mexican">Mexican: burritos, quesadillas, flavor bursts</label><br>
               <input type="radio" id="asian" name="cuisine" value="asian">
               <label for="asian">Asian: sushi, noodles, sweet and spicy</label><br>
+              <input type="radio" id="middleEastern" name="cuisine" value="middleEastern">
+              <label for="middleEastern">Middle Eastern: fragrant, spicy, creamy, diverse</label>
               <input type="radio" id="american" name="cuisine" value="american">
               <label for="american">American: burgers, chicken tendies, fries, and more</label><br>
               <input type="radio" id="dessert" name="cuisine" value="dessert">
@@ -155,12 +159,10 @@
               <legend>How much can you spend?</legend>
               <input type="radio" id="cheap" name="price" value="cheap">
               <label for="cheap">Broke college kid looking for something the price of Ramen (but not ramen)</label><br>
-              <input type="radio" id="moderate" name="price" value="moderate">
-              <label for="moderate">Still broke but one step above ramen</label><br>
               <input type="radio" id="expensive" name="price" value="expensive">
               <label for="expensive">Broke but looking to treat myself</label><br>
               <input type="radio" id="veryexpensive" name="price" value="veryexpensive">
-              <label for="veryexpensive">I'm taking my significant other out (we ballin in cash)</label>
+              <label for="veryexpensive">My parents are visiting for the day (and paying)</label>
             </fieldset>
 
             <fieldset>
@@ -169,31 +171,24 @@
               <label for="lilbit">Not starving but could eat</label><br>
               <input type="radio" id="medhunger" name="hunger" value="medhunger">
               <label for="medhunger">Hungry but a long wait time won't discourage me</label><br>
-              <input type="radio" id="hungry" name="hunger" value="hungry">
-              <label for="hungry">Hangry.</label><br>
               <input type="radio" id="starving" name="hunger" value="starving">
               <label for="starving">I could literally eat an entire horse by myself right now</label>
             </fieldset>
 
             <fieldset>
               <legend>What is the occassion?</legend>
-              <input type="radio" id="nooccasion" name="occassion" value="nooccasion">
+              <input type="radio" id="nooccasion" name="occasion" value="nooccasion">
               <label for="nooccasion">Avoiding doing the dishes at home</label><br>
-              <input type="radio" id="firstdate" name="occassion" value="firstdate">
-              <label for="firstdate">Trying to impress my date with my sophisticated taste in fast food</label><br>
-              <input type="radio" id="formal" name="occassion" value="formal">
-              <label for="formal">Birthday/Anniversary/Graduation/My parents are coming to visit this weekend and are
-                paying</label><br>
-              <input type="radio" id="screwed" name="occassion" value="screwed">
-              <label for="screwed">Attempting to salvage my relationship after forgetting our anniversary</label>
+              <input type="radio" id="firstDate" name="occasion" value="firstDate">
+              <label for="firstDate">Trying to impress my date with my sophisticated taste in fast food</label><br>
+              <input type="radio" id="formal" name="occasion" value="formal">
+              <label for="formal">Birthday/Anniversary/Graduation</label><br>
             </fieldset>
 
             <fieldset>
               <legend>What is the vibe?</legend>
               <input type="radio" id="quick" name="vibe" value="quick">
               <label for="quick">Oh I'm not sitting down, just grabbing and going</label><br>
-              <input type="radio" id="idc" name="vibe" value="idc">
-              <label for="idc">I don't care, just make sure it's tasty and reliable</label><br>
               <input type="radio" id="casual" name="vibe" value="casual">
               <label for="casual">Casual, I just need a place to get work done and get sustenance</label><br>
               <input type="radio" id="date" name="vibe" value="date">
