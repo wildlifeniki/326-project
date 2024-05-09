@@ -1,6 +1,6 @@
 import { db, getRestaurant } from './pouchdb_operations.js'; // Assuming you export your PouchDB instance from pouchdb_operations.js
 
-
+db.destroy()
 const homeDiv = document.getElementById("home");
 const quizDiv = document.getElementById("quiz");
 const restaurantsDiv = document.getElementById("restaurants");
@@ -17,13 +17,19 @@ const sortByName = document.getElementById("sortByName");
 const sortByPrice = document.getElementById("sortByPrice");
 const sortByLocation = document.getElementById("sortByLocation");
 const sortByGenre = document.getElementById("sortByGenre");
-<<<<<<< HEAD
-
-=======
 const restaurantDisplay = document.getElementById("restaurant-display")
->>>>>>> main
+const restrtResponse = document.getElementById("input");
+const input = document.getElementById("input");
+const createBtn = document.getElementById("createBtn");
+const readBtn = document.getElementById("readBtn");
+const updateBtn = document.getElementById("updateBtn");
+const deleteBtn = document.getElementById("deleteBtn");
+//const viewAllBtn = document.getElementById("viewAllBtn");
+
 
 //navigation
+const URL = "http://localhost:3000"; // URL of our server
+
 
 function goHome() {
     contentDiv.innerHTML = "";
@@ -249,104 +255,71 @@ if (document.URL.includes("restaurants")) {
     goQuiz();
 } else {
     goHome();
-<<<<<<< HEAD
 }
-function sortTableByName(){
-    let table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("table");
-  switching = true;
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-          shouldSwitch = false;
-          x = rows[i].getElementsByTagName("TD")[0];
-          y = rows[i + 1].getElementsByTagName("TD")[0];
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
-        }
-        if (shouldSwitch) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-        }
+
+// Function to handle create counter action
+async function createRestrnt() {
+  const id = input.value;
+  if (!id) {
+    alert("Counter name is required!");
+    return;
   }
-  
+
+  const response = await fetch(`${URL}/create?id=${id}`, {
+    method: "POST",
+  });
+  const data = await response.text();
+
+  restrtResponse.innerHTML = data;
 }
-function sortTableByPrice(){
-    let table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("table");
-  switching = true;
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-          shouldSwitch = false;
-          x = rows[i].getElementsByTagName("TD")[1];
-          y = rows[i + 1].getElementsByTagName("TD")[1];
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
-        }
-        if (shouldSwitch) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-        }
+
+// Function to handle read counter action
+async function readRestrnt() {
+  const id = input.value;
+  if (!id) {
+    alert("Counter name is required!");
+    return;
   }
-  
+
+  const response = await fetch(`${URL}/read?id=${id}`, { method: "GET" });
+  const data = await response.text();
+
+  restrtResponse.innerHTML = data;
 }
-function sortTableByGenre(){
-    let table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("table");
-  switching = true;
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-          shouldSwitch = false;
-          x = rows[i].getElementsByTagName("TD")[2];
-          y = rows[i + 1].getElementsByTagName("TD")[2];
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
-        }
-        if (shouldSwitch) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-        }
+
+// Function to handle update counter action
+async function updateRstrn() {
+  const id = input.value;
+  if (!id) {
+    alert("Counter name is required!");
+    return;
   }
-  
+
+  const response = await fetch(`${URL}/update?id=${id}`, {
+    method: "PUT",
+  });
+  const data = await response.text();
+
+  restrtResponse.innerHTML = data;
 }
-function sortTableByLocation(){
-    let table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("table");
-  switching = true;
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-          shouldSwitch = false;
-          x = rows[i].getElementsByTagName("TD")[3];
-          y = rows[i + 1].getElementsByTagName("TD")[3];
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
-        }
-        if (shouldSwitch) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-        }
+
+// Function to handle delete counter action
+async function deleteRestrnt() {
+  const id = input.value;
+  if (!id) {
+    alert("Counter name is required!");
+    return;
   }
-  
+
+  const response = await fetch(`${URL}/delete?id=${id}`, {
+    method: "DELETE",
+  });
+  const data = await response.text();
+
+  restrtResponse.innerHTML = data;
 }
-sortByName.addEventListener("click", sortTableByName);
-sortByPrice.addEventListener("click", sortTableByPrice);
-sortByGenre.addEventListener("click", sortTableByGenre);
-sortByLocation.addEventListener("click", sortTableByLocation);
-=======
-}
->>>>>>> main
+
+createBtn.addEventListener("click", createRestrnt);
+readBtn.addEventListener("click", readRestrnt);
+updateBtn.addEventListener("click", updateRstrn);
+deleteBtn.addEventListener("click", deleteRestrnt);

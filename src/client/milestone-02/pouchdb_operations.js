@@ -1,15 +1,6 @@
 //PouchDB db initialize
 export var db = new PouchDB('restaurants');
-
-<<<<<<< HEAD
-document.addEventListener("DOMContentLoaded", async function() {
-    //array of restaurant objects
-    //add and delete restaurants as required by modifying table, or use functions above
-    const restaurantsToAdd = [
-        { _id: '1', name: "Johnny's Tavern", genre: "pub", price: "$$", location: "East Amherst", score: 0 },
-        { _id: '2', name: "Fresh Side", genre: "deli", price: "$", location: "West Amherst", score: 0 },
-        { _id: '3', name: "Bistro 63", genre: "grill", price: "$$", location: "Central Amherst", score: 0 }
-=======
+db.destroy()
 document.addEventListener("DOMContentLoaded", async function () {
     //array of restaurant objects
     //add and delete restaurants as required by modifying table, or use functions above
@@ -25,7 +16,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         { _id: '9', name: "Johnny's Tavern", stars: 4.1, appetite: "starving", cuisine: "american", price: "veryexpensive", quizVibe: "cool", vibe: "classic, family-favorite, filling", occasion: "formal", location: "Amherst Center", score: 0 }, 
         { _id: '10', name: "Bueno Y Sano", stars: 4.1, appetite: "medhunger", cuisine: "mexican", price: "cheap", quizVibe: "quick", vibe: "reliable, flavorful, fresh", occasion: "nooccasion", location: "Amherst Center", score: 0 }
 
->>>>>>> main
     ];
 
     //add a restaurant to PouchDB database
@@ -34,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log('Adding restaurant:', restaurant.name);
         return db.put(restaurant)
             .then(function (response) {
-                console.log('Restaurant added:', response);
+                console.log('Restaurant added:', restaurant.name);
                 return response;
             })
             .catch(function (err) {
@@ -60,11 +50,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 //functions to retrieve or modify database, not as important to understand
 
 //add restaurant to the database
-<<<<<<< HEAD
-export function addRestaurant(id, name, genre, price, location) {
-=======
 function addRestaurant(id, name, genre, price, location) {
->>>>>>> main
     console.log('Adding restaurant:', id, name, genre, price, location);
     return db.put({
         _id: id,
@@ -131,4 +117,3 @@ export function updateRestaurant(id, name, genre, price, location) {
 // db.info().then(function (info) {
 //   console.log(info);
 // })
-
