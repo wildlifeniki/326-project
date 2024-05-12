@@ -1,4 +1,5 @@
 //PouchDB db initialize
+import PouchDB from "pouchdb";
 export var db = new PouchDB('restaurants');
 db.destroy()
 document.addEventListener("DOMContentLoaded", async function () {

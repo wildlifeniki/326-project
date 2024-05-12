@@ -1,4 +1,4 @@
-import PouchDB from "PouchDB";
+import PouchDB from "pouchdb";
 
 export var newDB = new PouchDB("pickedRestraunts");
 
