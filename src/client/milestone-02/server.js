@@ -1,7 +1,7 @@
 import express from "express";
 import logger from "morgan";
-import {db, getRestaurant} from "./pouchdb_operations.js"
-import { newDB } from "./newDBOperations";
+import * as db from "./pouchdb_operations.js";
+import  * as newDB  from "./newDBOperations.js";
 
 
 const headerFields = { "Content-Type": "text/html" };
@@ -68,41 +68,41 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static("src/client"));
+app.use(express.static("src/milestone-02/client"));
 
-const MethodNotAllowedHandler = async (request, response) => {
-    response.writeHead(405,{'Content-Type':'text/plain'});
-    response.write("<h1>Method Not Allowed/<h1>");
-    response.end();
-  };
+// const MethodNotAllowedHandler = async (request, response) => {
+//     response.writeHead(405,{'Content-Type':'text/plain'});
+//     response.write("<h1>Method Not Allowed/<h1>");
+//     response.end();
+//   };
   app
   .route("/read")
   .get(async (request, response) => {
     const options = request.query;
-    readRestaurant(response, options.id);
+    await readRestaurant(response, options.id);
   })
-  .all(MethodNotAllowedHandler);
+  // .all(MethodNotAllowedHandler);
   app
   .route("/create")
   .post(async (request, response) => {
     const options = request.query;
-    createRestraunt(response, options.id);
+    await createRestraunt(response, options.id);
   })
-  .all(MethodNotAllowedHandler);
+  // .all(MethodNotAllowedHandler);
   app
   .route("/update")
   .put(async (request, response) => {
     const options = request.query;
-    putRestuarant(response, options.id);
+    await putRestuarant(response, options.id);
   })
-  .all(MethodNotAllowedHandler);
+  // .all(MethodNotAllowedHandler);
   app
   .route("/delete")
   .delete(async (request, response) => {
     const options = request.query;
-    removeRestraunt(response, options.id);
+    await removeRestraunt(response, options.id);
   })
-  .all(MethodNotAllowedHandler);
+  // .all(MethodNotAllowedHandler);
   
   app.listen(port, () => {
     console.log(`Server started on port ${port}`);

@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 //functions to retrieve or modify database, not as important to understand
 
 //add restaurant to the database
-function addRestaurant(id, name, genre, price, location) {
+export function addRestaurant(id, name, genre, price, location) {
     console.log('Adding restaurant:', id, name, genre, price, location);
     return db.put({
         _id: id,
