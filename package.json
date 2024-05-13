@@ -45,7 +45,7 @@
     }
   ],
   "scripts": {
-    "start": "node ./src/client/milestone-02/server.js",
+    "start": "node ./src/server/server.js",
     "dev": "",
     "test": "",
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",

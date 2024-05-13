@@ -2,7 +2,7 @@
 import PouchDB from "pouchdb";
 export var db = new PouchDB('restaurants');
 db.destroy()
-document.addEventListener("DOMContentLoaded", async function () {
+//window.addEventListener("DOMContentLoaded", async function () {
     //array of restaurant objects
     //add and delete restaurants as required by modifying table, or use functions above
     const restaurantsToAdd = [
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     //add a restaurant to PouchDB database
     //note: not the same as addRestaurant function, for in file adding
-    function addRestaurantToDB(restaurant) {
+    async function addRestaurantToDB(restaurant) {
         console.log('Adding restaurant:', restaurant.name);
         return db.put(restaurant)
             .then(function (response) {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     //add all restaurants to PouchDB database
-    function addRestaurantsToDB(restaurants) {
+    async function addRestaurantsToDB(restaurants) {
         return Promise.all(restaurants.map(restaurant => addRestaurantToDB(restaurant)));
     }
     addRestaurantsToDB(restaurantsToAdd)
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         .catch(err => {
             console.error('Error adding restaurants to the database:', err);
         });
-});
+//});
 
 
 //functions to retrieve or modify database, not as important to understand

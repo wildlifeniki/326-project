@@ -1,5 +1,6 @@
 import express from "express";
 import logger from "morgan";
+import path from "path";
 import * as db from "./pouchdb_operations.js";
 import  * as newDB  from "./newDBOperations.js";
 
@@ -8,6 +9,7 @@ const headerFields = { "Content-Type": "text/html" };
 
 async function createRestraunt(response, id){
     try{
+         id = id.toString();
         await newDB.addRestaurant(db.getRestaurant(id));
         const restaurant = await newDB.getRestaurant(id);
         response.writeHead(200, headerFields);
@@ -24,6 +26,7 @@ async function createRestraunt(response, id){
 }
 async function readRestaurant(response, id) {
     try {
+      id = id.toString();
       const restaurant = await db.getRestaurant(id);
       response.writeHead(200, headerFields);
       response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.genre}</td><td> ${restaurant.location}</td></tr>`);
@@ -37,6 +40,7 @@ async function readRestaurant(response, id) {
   //add personal rating system that updates? or perhaps favorites? need to ask
   async function putRestuarant(response, id) {
     try {
+      id = id.toString();
       const restaurant = await db.getRestaurant(id);
       await newDB.updateRestaurant(restaurant);
       response.writeHead(200, headerFields);
@@ -50,6 +54,7 @@ async function readRestaurant(response, id) {
   }
   async function removeRestraunt(response, id) {
     try {
+      id = id.toString();
         const restaurant = await db.getRestaurant(id);
         response.writeHead(200, headerFields);
         response.write(`<h1>restaurant ${restaurant.name} Deleted</h1>`);
@@ -67,8 +72,8 @@ const port = 3260;
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use(express.static("src/milestone-02/client"));
+//console.log(db.getRestaurant("1"));
+app.use(express.static("src/client/" ));
 
 // const MethodNotAllowedHandler = async (request, response) => {
 //     response.writeHead(405,{'Content-Type':'text/plain'});
@@ -104,6 +109,9 @@ app.use(express.static("src/milestone-02/client"));
   })
   // .all(MethodNotAllowedHandler);
   
+app.route("*").all(async (request, response) => {
+  response.sendFile(path.resolve('src/client/index.html'));
+});
   app.listen(port, () => {
     console.log(`Server started on port ${port}`);
   });

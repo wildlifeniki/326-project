@@ -1,6 +1,6 @@
-import { db, getRestaurant } from './pouchdb_operations.js'; // Assuming you export your PouchDB instance from pouchdb_operations.js
+//import { db, getRestaurant } from './pouchdb_operations.js'; // Assuming you export your PouchDB instance from pouchdb_operations.js
 
-db.destroy()
+//db.destroy()
 const homeDiv = document.getElementById("home");
 const quizDiv = document.getElementById("quiz");
 const restaurantsDiv = document.getElementById("restaurants");
@@ -28,7 +28,7 @@ const deleteBtn = document.getElementById("deleteBtn");
 
 
 //navigation
-const URL = "http://localhost:3000"; // URL of our server
+const URL = "http://localhost:3260"; // URL of our server
 
 
 function goHome() {

@@ -1,7 +1,7 @@
 import PouchDB from "pouchdb";
 
 export var newDB = new PouchDB("pickedRestraunts");
-
+//newDB.destroy()
 export async function addRestaurant(restaurant) {
     console.log('Adding restaurant:', restaurant.id, restaurant.name, restaurant.genre, restaurant.price, restaurant.location);
     return newDB.put({
