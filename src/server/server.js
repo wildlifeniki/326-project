@@ -10,13 +10,19 @@ const headerFields = { "Content-Type": "text/html" };
 async function createRestraunt(response, id){
     try{
          id = id.toString();
-        await newDB.addRestaurant(db.getRestaurant(id));
+         let oldRestraunt = await db.getRestaurant(id);
+        await newDB.addRestaurant(oldRestraunt);
         const restaurant = await newDB.getRestaurant(id);
         response.writeHead(200, headerFields);
-        response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.genre}</td><td> ${restaurant.location}</td></tr>`);
+        console.log('got restraunt' + restaurant.name);
+        response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td></tr>`);
         response.end();
     }
-    catch(err){
+    catch(e){
+      console.log("Error", e.stack);
+    console.log("Error", e.name);
+    console.log("Error", e.message);
+
         response.writeHead(500, headerFields);
         response.write("<h1>Internal Server Error</h1>");
         response.write("<p>Unable to create restraunt</p>");
@@ -29,7 +35,7 @@ async function readRestaurant(response, id) {
       id = id.toString();
       const restaurant = await db.getRestaurant(id);
       response.writeHead(200, headerFields);
-      response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.genre}</td><td> ${restaurant.location}</td></tr>`);
+      response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td></tr>`);
       response.end();
     } catch (err) {
       response.writeHead(404, headerFields);
@@ -44,7 +50,7 @@ async function readRestaurant(response, id) {
       const restaurant = await db.getRestaurant(id);
       await newDB.updateRestaurant(restaurant);
       response.writeHead(200, headerFields);
-      response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.genre}</td><td> ${restaurant.location}</td></tr>`);
+      response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td></tr>`);
       response.end();
     } catch (err) {
       response.writeHead(404, headerFields);

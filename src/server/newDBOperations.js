@@ -3,13 +3,14 @@ import PouchDB from "pouchdb";
 export var newDB = new PouchDB("pickedRestraunts");
 //newDB.destroy()
 export async function addRestaurant(restaurant) {
-    console.log('Adding restaurant:', restaurant.id, restaurant.name, restaurant.genre, restaurant.price, restaurant.location);
+    console.log('Adding restaurant:', restaurant._id, restaurant.name, restaurant.cuisine, restaurant.price, restaurant.location);
     return newDB.put({
-        _id: restaurant.id,
+        //
+        _id: restaurant._id,
         name: restaurant.name,
-        genre: restaurant.genre,
+        genre: restaurant.cuisine,
         price: restaurant.price,
-        location: location
+        location: restaurant.location
     }).then(function (response) {
         console.log('Restaurant added:', response);
         return response;
@@ -43,8 +44,9 @@ export async function deleteRestaurant(id) {
 export async function updateRestaurant(restaurant) {
     console.log('Updating restaurant:', restaurant.id);
     return newDB.get(restaurant.id).then(function (doc) {
+        doc._id = restaurant._id.toString();
         doc.name = restaurant.name;
-        doc.genre = restaurant.genre;
+        doc.genre = restaurant.cuisine;
         doc.price = restaurant.price;
         doc.location = restaurant.location;
         return newDB.put(doc);
