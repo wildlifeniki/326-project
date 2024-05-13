@@ -42,14 +42,15 @@ export async function deleteRestaurant(id) {
     });
 }
 export async function updateRestaurant(restaurant) {
-    console.log('Updating restaurant:', restaurant.id);
-    return newDB.get(restaurant.id).then(function (doc) {
+    console.log('Updating restaurant:');
+    
+    return newDB.get(restaurant._id).then(function (doc) {
         doc._id = restaurant._id.toString();
-        doc.name = restaurant.name;
+        doc.name = restaurant.name + " hello";
         doc.genre = restaurant.cuisine;
         doc.price = restaurant.price;
         doc.location = restaurant.location;
-        return newDB.put(doc);
+        return newDB.put(doc, {force: true});
     }).then(function (response) {
         console.log('Restaurant updated:', response);
         return response;

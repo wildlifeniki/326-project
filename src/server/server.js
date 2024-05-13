@@ -15,7 +15,7 @@ async function createRestraunt(response, id){
         const restaurant = await newDB.getRestaurant(id);
         response.writeHead(200, headerFields);
         console.log('got restraunt' + restaurant.name);
-        response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td></tr>`);
+        response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.genre}</td><td> ${restaurant.location}</td></tr>`);
         response.end();
     }
     catch(e){
@@ -33,7 +33,7 @@ async function createRestraunt(response, id){
 async function readRestaurant(response, id) {
     try {
       id = id.toString();
-      const restaurant = await db.getRestaurant(id);
+      const restaurant = await newDB.getRestaurant(id);
       response.writeHead(200, headerFields);
       response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td></tr>`);
       response.end();
@@ -44,15 +44,19 @@ async function readRestaurant(response, id) {
     }
   }
   //add personal rating system that updates? or perhaps favorites? need to ask
-  async function putRestuarant(response, id) {
+  async function updtRestuarant(response, id) {
     try {
       id = id.toString();
-      const restaurant = await db.getRestaurant(id);
-      await newDB.updateRestaurant(restaurant);
+      const restaurant = await newDB.getRestaurant(id);
+      console.log(restaurant);
+      const logg = await newDB.updateRestaurant(restaurant);
       response.writeHead(200, headerFields);
       response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td></tr>`);
       response.end();
-    } catch (err) {
+    } catch (e) {
+      console.log("Error", e.stack);
+    console.log("Error", e.name);
+    console.log("Error", e.message);
       response.writeHead(404, headerFields);
       response.write(`<h1>restaurant Not Found</h1>`);
       response.end();
@@ -61,7 +65,7 @@ async function readRestaurant(response, id) {
   async function removeRestraunt(response, id) {
     try {
       id = id.toString();
-        const restaurant = await db.getRestaurant(id);
+        const restaurant = await newDB.getRestaurant(id);
         response.writeHead(200, headerFields);
         response.write(`<h1>restaurant ${restaurant.name} Deleted</h1>`);
         response.end();
@@ -104,7 +108,7 @@ app.use(express.static("src/client/" ));
   .route("/update")
   .put(async (request, response) => {
     const options = request.query;
-    await putRestuarant(response, options.id);
+    await updtRestuarant(response, options.id);
   })
   // .all(MethodNotAllowedHandler);
   app

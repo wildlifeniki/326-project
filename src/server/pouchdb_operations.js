@@ -99,6 +99,7 @@ export function deleteRestaurant(id) {
 export function updateRestaurant(id, name, genre, price, location) {
     console.log('Updating restaurant:', id);
     return db.get(id).then(function (doc) {
+        doc._id = id;
         doc.name = name;
         doc.genre = genre;
         doc.price = price;
