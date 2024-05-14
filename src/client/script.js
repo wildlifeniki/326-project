@@ -1,6 +1,6 @@
 //import { db, getRestaurant } from './pouchdb_operations.js'; // Assuming you export your PouchDB instance from pouchdb_operations.js
 
-//db.destroy()
+
 const homeDiv = document.getElementById("home");
 const quizDiv = document.getElementById("quiz");
 const restaurantsDiv = document.getElementById("restaurants");
@@ -201,6 +201,7 @@ if (restaurantDisplay !== null) {
         let buttonId = "btn".concat(i)
         const restaurantOnMapButton = document.getElementById(buttonId);
         const restaurant = restaurants.find(r => r._id === i.toString());
+        restaurantOnMapButton.textContent = restaurant.name;
 
         restaurantOnMapButton.addEventListener("click", () => {
             displayRestaurant(restaurantDisplay, restaurant);
