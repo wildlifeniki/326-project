@@ -1,6 +1,4 @@
-//import { db, getRestaurant } from './pouchdb_operations.js'; // Assuming you export your PouchDB instance from pouchdb_operations.js
-
-export const restaurants = [
+const restaurants = [
     { _id: '1', name: "Moge Tee", stars: 4.3, appetite: "lilbit", cuisine: "asian", price: "$", quizVibe: "cool", vibe: "modern, playful, sweet", occasion: "firstDate", location: "Amherst Center", score: 0 }, 
     { _id: '2', name: "Halal Cart", stars: 4.8, appetite: "medhunger", cuisine: "middleEastern", price: "$", quizVibe: "quick", vibe: "Messy, spicy, delicious", occasion: "nooccasion", location: "Amherst Center", score: 0 },
     { _id: '3', name: "Carefree Cakery", stars: 4.9, appetite: "lilbit", cuisine: "dessert", price: "$", quizVibe: "quick", vibe: "cutesy, small, slightly overpriced", occasion: "firstDate", location: "North Amherst", score: 0 },
@@ -14,7 +12,6 @@ export const restaurants = [
 
 ];
 
-//db.destroy()
 const homeDiv = document.getElementById("home");
 const quizDiv = document.getElementById("quiz");
 const restaurantsDiv = document.getElementById("restaurants");
@@ -180,6 +177,7 @@ quiz.addEventListener("submit", (event) => {
 // map buttons
 
 // before fixing server issues, local storage for map only
+
 
 if (restaurantDisplay !== null) {
     restaurantDisplay.innerHTML = `
