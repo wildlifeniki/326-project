@@ -4,15 +4,16 @@ Amherst Eats is a project aimed at enhancing the dining experience for students 
 
 ## Installation/Usage
 
-After cloning into the repository, install npm before running the milestone-02 command. This will start the site here: http://127.0.0.1:3000/
+After cloning into the repository, install npm before running the start command. This will start the site here: http://localhost:3260
 
 ```bash
 npm install
-npm run milestone-02
+npm start
 ```
 
 Other commands:
 - ``npm run milestone-01`` to view the milestone-01 proposal
+- ``npm run milestone-02``
 - ``npm run validate-html``
 - ``npm run prettier``
 
