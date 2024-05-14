@@ -10,7 +10,8 @@ export async function addRestaurant(restaurant) {
         name: restaurant.name,
         cuisine: restaurant.cuisine,
         price: restaurant.price,
-        location: restaurant.location
+        location: restaurant.location,
+        rating: 0
     }).then(function (response) {
         console.log('Restaurant added:', response);
         return response;
@@ -50,6 +51,7 @@ export async function updateRestaurant(restaurant) {
         doc.cuisine = restaurant.cuisine;
         doc.price = restaurant.price;
         doc.location = restaurant.location;
+        doc.rating = doc.rating + 1;
         return newDB.put(doc, {force: true});
     }).then(function (response) {
         console.log('Restaurant updated:', response);

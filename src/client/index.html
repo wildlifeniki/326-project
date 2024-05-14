@@ -250,46 +250,37 @@
           <button type="button" id="sortByPrice">Sort By Price</button>
           <button type="button" id="sortByGenre">Sort By Genre</button>
           <button type="button" id="sortByLocation">Sort By Location</button>
-          <button type="button" id="readBtn">Read Restraunt</button>
-          <button type="button" id="createBtn">Create Restaurant</button>
-          <button type="button" id="updateBtn">update Restraunt </button>
-          <button type="button" id="deleteBtn">delete Restraunt</button>
-          <input type="text" id="input" placeholder="Enter restraunt name" />
-          <table class="table" id="table"></table>
-
-          <table class="table" id="table">
+          <button type="button" id="getAll">Get All Restraunts</button>
+          <table class="table" id="tableHeader">
             <thead>
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
-                <th scope="col">Genre</th>
+                <th scope="col">Cuisine</th>
                 <th scope="col">Location</th>
+                <th scope="col">Rating</th>
+                <th scope="col">ID</th>
+              </tr>
+            </thead>
+          </table>
+          <table class="table" id="table">
+            <thead>
+              <tr>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Johnny's Tavern</td>
-                <td>$$</td>
-                <td>Grill</td>
-                <td>North Amherst</td>
-              </tr>
-              <tr>
-                <td>Fresh Side</td>
-                <td>$</td>
-                <td>Deli</td>
-                <td>West Amherst</td>
-              </tr>
-              <tr>
-                <td>Bistro 63</td>
-                <td>$$</td>
-                <td>Bistro</td>
-                <td>East Amherst</td>
-              </tr>
             </tbody>
           </table>
+          
+          <button type="button" id="readBtn">Read Restraunt</button>
+          <button type="button" id="createBtn">Create Restaurant</button>
+          <button type="button" id="updateBtn">update Restraunt </button>
+          <button type="button" id="deleteBtn">delete Restraunt</button>
+          <input type="text" id="input" placeholder="Enter restraunt ID" />
           <table class="table" id="newTable">
             <thead>
-
+              <tbody>
+              </tbody>
             </thead>
           </table>
         </div>

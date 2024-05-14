@@ -15,7 +15,7 @@ async function createRestraunt(response, id){
         const restaurant = await newDB.getRestaurant(id);
         response.writeHead(200, headerFields);
         console.log('got restraunt' + restaurant.name);
-        response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.genre}</td><td> ${restaurant.location}</td></tr>`);
+        response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td><td> ${restaurant.rating}</td><td> ${restaurant._id}</td></tr>`);
         response.end();
     }
     catch(e){
@@ -35,7 +35,7 @@ async function readRestaurant(response, id) {
       id = id.toString();
       const restaurant = await newDB.getRestaurant(id);
       response.writeHead(200, headerFields);
-      response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td></tr>`);
+      response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td><td> ${restaurant.rating}</td><td> ${restaurant._id}</td></tr>`);
       response.end();
     } catch (err) {
       response.writeHead(404, headerFields);
@@ -47,11 +47,12 @@ async function readRestaurant(response, id) {
   async function updtRestuarant(response, id) {
     try {
       id = id.toString();
-      const restaurant = await newDB.getRestaurant(id);
+      let restaurant = await newDB.getRestaurant(id);
       console.log(restaurant);
       const logg = await newDB.updateRestaurant(restaurant);
+      restaurant = await newDB.getRestaurant(id);
       response.writeHead(200, headerFields);
-      response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td></tr>`);
+      response.write(`<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td><td> ${restaurant.rating}</td><td> ${restaurant._id}</td></tr>`);
       response.end();
     } catch (e) {
       console.log("Error", e.stack);
@@ -76,7 +77,40 @@ async function readRestaurant(response, id) {
       response.end();
     }
   }
+async function dumpRestraunts(response) {
+  try {
+    const counters = await db.loadAllRestraunts();
+    let responseText = "";
+    counters.forEach((restaurant) => {
+      responseText += `<tr><td> ${restaurant.name}</td> <td> ${restaurant.price}</td><td> ${restaurant.cuisine}</td><td> ${restaurant.location}</td><td> ${restaurant._id}</td></tr>`;
+    });
+    responseText += "</ul>";
 
+    response.writeHead(200, headerFields);
+    response.write(responseText);
+    response.end();
+  } catch (err) {
+    response.writeHead(500, headerFields);
+    response.write("<h1>Internal Server Error</h1>");
+    response.write("<p>Unable to load restraunts</p>");
+    response.write(`<pre>${err}</pre>`);
+    response.end();
+  }
+}
+async function dumpRestrauntsAsArray(response) {
+  try {
+    const restraunts = await db.loadAllRestraunts();
+    response.writeHead(200, headerFields);
+    response.write(restraunts);
+    response.end();
+  } catch (err) {
+    response.writeHead(500, headerFields);
+    response.write("<h1>Internal Server Error</h1>");
+    response.write("<p>Unable to load restraunts</p>");
+    response.write(`<pre>${err}</pre>`);
+    response.end();
+  }
+}
 const app = express();
 const port = 3260;
 app.use(logger("dev"));
@@ -117,6 +151,18 @@ app.use(express.static("src/client/" ));
     const options = request.query;
     await removeRestraunt(response, options.id);
   })
+  app
+  .route("/all")
+  .get(async (request, response) => {
+    const options = request.query;
+    dumpRestraunts(response);
+  })
+  // app
+  // .route("/allRests")
+  // .get(async (request, response) => {
+  //   const options = request.query;
+  //   dumpRestrauntsAsArray(response);
+  // })
   // .all(MethodNotAllowedHandler);
   
 app.route("*").all(async (request, response) => {

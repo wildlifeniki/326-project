@@ -1,6 +1,8 @@
 //PouchDB db initialize
 import PouchDB from "pouchdb";
-export var db = new PouchDB('restaurants');
+
+var db = new PouchDB('restaurants');
+
 //db.destroy()
 //window.addEventListener("DOMContentLoaded", async function () {
     //array of restaurant objects
@@ -114,8 +116,12 @@ export function updateRestaurant(id, name, genre, price, location) {
     });
 }
 
-
+export async function loadAllRestraunts() {
+    const result = await db.allDocs({ include_docs: true });
+    return result.rows.map((row) => row.doc);
+  }
 //function calls to get info on database, put in console 
 // db.info().then(function (info) {
 //   console.log(info);
 // })
+export {db};

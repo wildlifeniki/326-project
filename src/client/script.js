@@ -19,17 +19,24 @@ const sortByLocation = document.getElementById("sortByLocation");
 const sortByGenre = document.getElementById("sortByGenre");
 const restaurantDisplay = document.getElementById("restaurant-display")
 const restrtResponse = document.getElementById("newTable");
+const restrtold = document.getElementById("table");
 const input = document.getElementById("input");
 const createBtn = document.getElementById("createBtn");
 const readBtn = document.getElementById("readBtn");
 const updateBtn = document.getElementById("updateBtn");
 const deleteBtn = document.getElementById("deleteBtn");
+const getAll = document.getElementById("getAll");
 //const viewAllBtn = document.getElementById("viewAllBtn");
 
 
 //navigation
 const URL = "http://localhost:3260"; // URL of our server
-
+// let rests = [];
+// async function viewAllOldRests() {
+//     const response = await fetch(`${URL}/allRests`, { method: "GET" });
+//     rests = await response.text();
+  
+//   }
 
 function goHome() {
     contentDiv.innerHTML = "";
@@ -320,7 +327,7 @@ if (document.URL.includes("restaurants")) {
 async function createRestrnt() {
   const id = input.value;
   if (!id) {
-    alert("Counter name is required!");
+    alert("Restraunt id is required!");
     return;
   }
 
@@ -336,7 +343,7 @@ async function createRestrnt() {
 async function readRestrnt() {
   const id = input.value;
   if (!id) {
-    alert("Counter name is required!");
+    alert("Restraunt id is required!");
     return;
   }
 
@@ -350,7 +357,7 @@ async function readRestrnt() {
 async function updateRstrn() {
   const id = input.value;
   if (!id) {
-    alert("Counter name is required!");
+    alert("Restraunt name is required!");
     return;
   }
 
@@ -366,7 +373,7 @@ async function updateRstrn() {
 async function deleteRestrnt() {
   const id = input.value;
   if (!id) {
-    alert("Counter name is required!");
+    alert("Restraunt id is required!");
     return;
   }
 
@@ -377,8 +384,15 @@ async function deleteRestrnt() {
 
   restrtResponse.innerHTML = data;
 }
+async function viewAll() {
+    const response = await fetch(`${URL}/all`, { method: "GET" });
+    const data = await response.text();
+  
+    restrtold.innerHTML = data;
+  }
 
 createBtn.addEventListener("click", createRestrnt);
 readBtn.addEventListener("click", readRestrnt);
 updateBtn.addEventListener("click", updateRstrn);
 deleteBtn.addEventListener("click", deleteRestrnt);
+getAll.addEventListener("click", viewAll);
