@@ -111,7 +111,7 @@ if (restaurantDisplay !== null) {
             let priceDiv = document.createElement('div');
             let locationDiv = document.createElement('div');
             nameDiv.innerHTML = restaurant.name;
-            genreDiv.innerHTML = restaurant.genre;
+            genreDiv.innerHTML = restaurant.cuisine;
             priceDiv.innerHTML = restaurant.price;
             locationDiv.innerHTML = restaurant.location;
             restaurantDisplay.appendChild(nameDiv);
@@ -129,8 +129,8 @@ if (restaurantDisplay !== null) {
                         <td>${restaurant.price}</td>
                     </tr>
                     <tr>
-                        <td>Genre:</td>
-                        <td>${restaurant.genre}</td>
+                        <td>Cuisine:</td>
+                        <td>${restaurant.cuisine}</td>
                     </tr>
                     <tr>
                         <td>Location:</td>

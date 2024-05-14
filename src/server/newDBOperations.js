@@ -8,7 +8,7 @@ export async function addRestaurant(restaurant) {
         //
         _id: restaurant._id,
         name: restaurant.name,
-        genre: restaurant.cuisine,
+        cuisine: restaurant.cuisine,
         price: restaurant.price,
         location: restaurant.location
     }).then(function (response) {
@@ -46,8 +46,8 @@ export async function updateRestaurant(restaurant) {
     
     return newDB.get(restaurant._id).then(function (doc) {
         doc._id = restaurant._id.toString();
-        doc.name = restaurant.name + " hello";
-        doc.genre = restaurant.cuisine;
+        doc.name = restaurant.name;
+        doc.cuisine = restaurant.cuisine;
         doc.price = restaurant.price;
         doc.location = restaurant.location;
         return newDB.put(doc, {force: true});
