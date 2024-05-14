@@ -27,6 +27,9 @@ const updateBtn = document.getElementById("updateBtn");
 const deleteBtn = document.getElementById("deleteBtn");
 const getAll = document.getElementById("getAll");
 //const viewAllBtn = document.getElementById("viewAllBtn");
+const quizDisplay1 = document.getElementById("result-display1");
+const quizDisplay2 = document.getElementById("result-display2");
+const quizDisplay3 = document.getElementById("result-display3");
 
 
 //navigation
