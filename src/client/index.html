@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <!-- PouchDB -->
+  <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"> type="text/javascript"</script>
+
+
+  <!-- Custom styles for this template -->
+  
+  <link href="/styles.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- to change fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Gloria+Hallelujah&display=swap"
+    rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet" type="text/css">
+
+  <!-- Include the external PouchDB script -->
+  <script type="module" src="/script.js" defer type="text/javascript"></script>
+</head>
+
+<header data-bs-theme="light-theme">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-navbar">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a id="navHome" class="nav-link" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a id="navQuiz" class="nav-link" aria-current="page" href="#quiz">Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a id="navRestaurants" class="nav-link" aria-current="page" href="#restaurants">Restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a id="navMap" class="nav-link" aria-current="page" href="#map">Map</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div id="content">
+
+    <div id="home">
+
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+              <image href="images/HomeBG.png" width="100%" height="100%" />
+            </svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Amherst Eats</h1>
+                <p>Ending the cycle of “I don’t care, you pick”</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container marketing">
+        <div class="row">
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+              role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+              <image href="images/homequizlogo.png" width="100%" height="100%" />
+            </svg>
+            <h2 class="fw-normal">Food Mood Quiz</h2>
+            <p>Unveil Your Culinary Destiny!</p>
+            <p><a id="quizButton" class="btn btn-secondary" href="#quiz">Quiz &raquo;</a></p>
+          </div>
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+              role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+              <image href="images/homeDBlogo.png" width="100%" height="100%" />
+            </svg>
+            <h2 class="fw-normal">Restaurants</h2>
+            <p>Gourmet Guide: Your Gateway to Delicious Destinations</p>
+            <p><a id="restaurantsButton" class="btn btn-secondary" href=#restaurants>Restaurants &raquo;</a></p>
+          </div>
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+              role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+              <image href="images/HomeMapLogo.png" width="100%" height="100%" />
+            </svg>
+            <h2 class="fw-normal">Map</h2>
+            <p>Savor Seeker's Map: Navigating the World of Flavor</p>
+            <p><a id="mapButton" class="btn btn-secondary" href=#map>Map &raquo;</a></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="quiz">
+
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" display>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+              <image href="images/QuizBG.png" width="100%" height="100%" />
+            </svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Food Mood Quiz</h1>
+                <p>Let's discover your food fate</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container marketing">
+        <div>
+          <form id="foodMoodForm">
+            <fieldset>
+              <legend>What type of cuisine are you thinking?</legend>
+              <input type="radio" id="anycuisine" name="cuisine" value="anycuisine">
+              <label for="anycuisine">Down for anything!</label><br>
+              <input type="radio" id="italian" name="cuisine" value="italian">
+              <label for="italian">Italian: pasta, pizza, give me something from the Romans</label><br>
+              <input type="radio" id="mexican" name="cuisine" value="mexican">
+              <label for="mexican">Mexican: burritos, quesadillas, flavor bursts</label><br>
+              <input type="radio" id="asian" name="cuisine" value="asian">
+              <label for="asian">Asian: sushi, noodles, sweet and spicy</label><br>
+              <input type="radio" id="middleEastern" name="cuisine" value="middleEastern">
+              <label for="middleEastern">Middle Eastern: fragrant, spicy, creamy, diverse</label><br>
+              <input type="radio" id="american" name="cuisine" value="american">
+              <label for="american">American: burgers, chicken tendies, fries, and more</label><br>
+              <input type="radio" id="dessert" name="cuisine" value="dessert">
+              <label for="dessert">Dessert: cookies, cupcakes, ice cream, just a lil treat</label><br>
+            </fieldset><br>
+
+            <fieldset>
+              <legend>How much can you spend?</legend>
+              <input type="radio" id="cheap" name="price" value="$">
+              <label for="cheap">Broke college kid looking for something the price of Ramen (but not ramen)</label><br>
+              <input type="radio" id="expensive" name="price" value="$$">
+              <label for="expensive">Broke but looking to treat myself</label><br>
+              <input type="radio" id="veryexpensive" name="price" value="$$$">
+              <label for="veryexpensive">My parents are visiting for the day (and paying)</label>
+            </fieldset><br>
+
+            <fieldset>
+              <legend>How hungry are you?</legend>
+              <input type="radio" id="lilbit" name="hunger" value="lilbit">
+              <label for="lilbit">Not starving but could eat</label><br>
+              <input type="radio" id="medhunger" name="hunger" value="medhunger">
+              <label for="medhunger">Hungry but a long wait time won't discourage me</label><br>
+              <input type="radio" id="starving" name="hunger" value="starving">
+              <label for="starving">I could literally eat an entire horse by myself right now</label>
+            </fieldset><br>
+
+            <fieldset>
+              <legend>What is the occassion?</legend>
+              <input type="radio" id="nooccasion" name="occasion" value="nooccasion">
+              <label for="nooccasion">Casual: Avoiding doing the dishes at home</label><br>
+              <input type="radio" id="firstDate" name="occasion" value="firstDate">
+              <label for="firstDate">Treat: Trying to impress my date with my sophisticated taste in fast food</label><br>
+              <input type="radio" id="formal" name="occasion" value="formal">
+              <label for="formal">Formal: Birthday/Anniversary/Graduation</label><br>
+            </fieldset><br>
+
+            <fieldset>
+              <legend>What is the vibe?</legend>
+              <input type="radio" id="quick" name="vibe" value="quick">
+              <label for="quick">Oh I'm not sitting down, just grabbing and going</label><br>
+              <input type="radio" id="casual" name="vibe" value="casual">
+              <label for="casual">Casual, I just need a place to get work done and get sustenance</label><br>
+              <input type="radio" id="date" name="vibe" value="date">
+              <label for="date">Cute and cozy, dim lighting and good conversation</label><br>
+              <input type="radio" id="cool" name="vibe" value="cool">
+              <label for="cool">A modern, unique place with different (instagrammable) foods </label><br>
+            </fieldset><br>
+
+            <button type="submit" class="btn btn-primary" id="quizSubmit">Find My Food Future</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="container" id="result-display1">
+        <table style="width:200px; text-align: center;" class="borderbox">
+          <tr>
+          </tr>
+        </table>
+      </div>
+      <div class="container" id="result-display2">
+        <table style="width:200px; text-align: center;" class="borderbox">
+          <tr>
+          </tr>
+        </table>
+      </div>
+      <div class="container" id="result-display3">
+        <table style="width:200px; text-align: center;" class="borderbox">
+          <tr>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <div id="restaurants">
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+              <image href="images/RestBG.png" width="100%" height="100%" />
+            </svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Restaurants</h1>
+                Explore our database of Amherst Restaurants!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container marketing">
+        <div>
+          <h2 class="fw-normal">Restaurants</h2>
+          <button type="button" id="sortByName">Sort By Name</button>
+          <button type="button" id="sortByPrice">Sort By Price</button>
+          <button type="button" id="sortByGenre">Sort By Genre</button>
+          <button type="button" id="sortByLocation">Sort By Location</button>
+          <button type="button" id="readBtn">Read Restraunt</button>
+          <button type="button" id="createBtn">Create Restaurant</button>
+          <button type="button" id="updateBtn">update Restraunt </button>
+          <button type="button" id="deleteBtn">delete Restraunt</button>
+          <input type="text" id="input" placeholder="Enter restraunt name" />
+          <table class="table" id="table"></table>
+
+          <table class="table" id="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Johnny's Tavern</td>
+                <td>$$</td>
+                <td>Grill</td>
+                <td>North Amherst</td>
+              </tr>
+              <tr>
+                <td>Fresh Side</td>
+                <td>$</td>
+                <td>Deli</td>
+                <td>West Amherst</td>
+              </tr>
+              <tr>
+                <td>Bistro 63</td>
+                <td>$$</td>
+                <td>Bistro</td>
+                <td>East Amherst</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table" id="newTable">
+            <thead>
+
+            </thead>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="map">
+
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+              <image href="images/MapBG.png" width="100%" height="100%" />
+            </svg>
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Map</h1>
+                Check out the locations of Amherst restaurants!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" id="restaurant-display">
+        <table style="width:200px; text-align: center;" class="borderbox">
+          <tr>
+            <td class="h4" colspan="2">Click on the map to discover restaurants!</td>
+          </tr>
+        </table>
+      </div>
+
+      <br>
+
+      <div class="container marketing map-buttons">
+        <div>
+          <h2 class="fw-normal">Map</h2>
+          <img id="map" src="images/Map.png" class="member-pic borderbox" alt="photo" width="80%" height="auto">
+
+          <button class="button-map" id="btn1" role="button">Lili's</button>
+          <button class="button-map" id="btn2" role="button">Miss Saigon</button>
+          <button class="button-map" id="btn3" role="button">Chicken & Kebab</button>
+          <button class="button-map" id="btn4" role="button">Johnny's Diner</button>
+          <button class="button-map" id="btn5" role="button">Protocol</button>
+          <button class="button-map" id="btn6" role="button">House of Teriyaki</button>
+          <button class="button-map" id="btn7" role="button">Woo</button>
+          <button class="button-map" id="btn8" role="button">Frank</button>
+          <button class="button-map" id="btn9" role="button">Hamp/Berk</button>
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</main>
+<script src="../assets/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" type="text/javascript"></script>
+</body>
+
+</html>

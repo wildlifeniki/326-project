@@ -45,6 +45,7 @@
     }
   ],
   "scripts": {
+    "start": "node ./src/server/server.js",
     "dev": "",
     "test": "",
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
@@ -59,6 +60,9 @@
     "prettier": "^3.2.5"
   },
   "dependencies": {
-    "g": "^2.0.1"
+    "express": "^4.19.2",
+    "g": "^2.0.1",
+    "morgan": "^1.10.0",
+    "pouchdb": "^8.0.1"
   }
 }
