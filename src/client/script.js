@@ -1,5 +1,19 @@
 //import { db, getRestaurant } from './pouchdb_operations.js'; // Assuming you export your PouchDB instance from pouchdb_operations.js
 
+export const restaurants = [
+    { _id: '1', name: "Moge Tee", stars: 4.3, appetite: "lilbit", cuisine: "asian", price: "$", quizVibe: "cool", vibe: "modern, playful, sweet", occasion: "firstDate", location: "Amherst Center", score: 0 }, 
+    { _id: '2', name: "Halal Cart", stars: 4.8, appetite: "medhunger", cuisine: "middleEastern", price: "$", quizVibe: "quick", vibe: "Messy, spicy, delicious", occasion: "nooccasion", location: "Amherst Center", score: 0 },
+    { _id: '3', name: "Carefree Cakery", stars: 4.9, appetite: "lilbit", cuisine: "dessert", price: "$", quizVibe: "quick", vibe: "cutesy, small, slightly overpriced", occasion: "firstDate", location: "North Amherst", score: 0 },
+    { _id: '4', name: "Miss Saigon", stars: 4.6, appetite: "medhunger", cuisine: "asian", price: "$", quizVibe: "date", vibe: "quaint, well-loved, child-in-back-room-doing-the-accounting vibes", occasion: "firstDate", location: "Amherst Center", score: 0 }, 
+    { _id: '5', name: "House of Teriyaki", stars: 4.5, appetite: "starving", cuisine: "asian", price: "$$", quizVibe: "date”, vibe: “home-cooked, filling, authentic", occasion: "firstDate", location: "North Amherst", score: 0 },
+    { _id: '6', name: "Protocol", stars: 4.8, appetite: "medhunger", cuisine: "american", price: "$$$", quizVibe: "cool", vibe: "chic, greenery, pricey",  occasion: "formal", location: "Amherst Center", score: 0 },
+    { _id: '7', name: "Lili's Restaurant", stars: 4.8, appetite: "starving", cuisine: "asian", price: "$$", quizVibe: "date", vibe: "small, authentic, flavorful", occasion: "firstDate", location: "Amherst Center", score: 0 },
+    { _id: '8', name: "Chicken & Kebab", stars: 4.8, appetite: "starving", cuisine: "middleEastern", price: "$$", quizVibe: "quick", vibe: "flavorful, new, unique", occasion: "nooccasion", location: "Amherst Center", score: 0 },
+    { _id: '9', name: "Johnny's Tavern", stars: 4.1, appetite: "starving", cuisine: "american", price: "$$$", quizVibe: "cool", vibe: "classic, family-favorite, filling", occasion: "formal", location: "Amherst Center", score: 0 }, 
+    { _id: '10', name: "Bueno Y Sano", stars: 4.1, appetite: "medhunger", cuisine: "mexican", price: "$", quizVibe: "quick", vibe: "reliable, flavorful, fresh", occasion: "nooccasion", location: "Amherst Center", score: 0 }
+
+];
+
 //db.destroy()
 const homeDiv = document.getElementById("home");
 const quizDiv = document.getElementById("quiz");
@@ -124,25 +138,11 @@ function displayRestaurant(display, restaurant) {
 
 // quiz logic
 
-const quiz_restaurants = [
-    { _id: '1', name: "Moge Tee", stars: 4.3, appetite: "lilbit", cuisine: "asian", price: "$", quizVibe: "cool", vibe: "modern, playful, sweet", occasion: "firstDate", location: "Amherst Center", score: 0 }, 
-    { _id: '2', name: "Halal Cart", stars: 4.8, appetite: "medhunger", cuisine: "middleEastern", price: "$", quizVibe: "quick", vibe: "Messy, spicy, delicious", occasion: "nooccasion", location: "Amherst Center", score: 0 },
-    { _id: '3', name: "Carefree Cakery", stars: 4.9, appetite: "lilbit", cuisine: "dessert", price: "$", quizVibe: "quick", vibe: "cutesy, small, slightly overpriced", occasion: "firstDate", location: "North Amherst", score: 0 },
-    { _id: '4', name: "Miss Saigon", stars: 4.6, appetite: "medhunger", cuisine: "asian", price: "$", quizVibe: "date", vibe: "quaint, well-loved, child-in-back-room-doing-the-accounting vibes", occasion: "firstDate", location: "Amherst Center", score: 0 }, 
-    { _id: '5', name: "House of Teriyaki", stars: 4.5, appetite: "starving", cuisine: "asian", price: "$$", quizVibe: "date”, vibe: “home-cooked, filling, authentic", occasion: "firstDate", location: "North Amherst", score: 0 },
-    { _id: '6', name: "Protocol", stars: 4.8, appetite: "medhunger", cuisine: "american", price: "$$$", quizVibe: "cool", vibe: "chic, greenery, pricey",  occasion: "formal", location: "Amherst Center", score: 0 },
-    { _id: '7', name: "Lili's Restaurant", stars: 4.8, appetite: "starving", cuisine: "asian", price: "$$", quizVibe: "date", vibe: "small, authentic, flavorful", occasion: "firstDate", location: "Amherst Center", score: 0 },
-    { _id: '8', name: "Chicken & Kebab", stars: 4.8, appetite: "starving", cuisine: "middleEastern", price: "$$", quizVibe: "quick", vibe: "flavorful, new, unique", occasion: "nooccasion", location: "Amherst Center", score: 0 },
-    { _id: '9', name: "Johnny's Tavern", stars: 4.1, appetite: "starving", cuisine: "american", price: "$$$", quizVibe: "cool", vibe: "classic, family-favorite, filling", occasion: "formal", location: "Amherst Center", score: 0 }, 
-    { _id: '10', name: "Bueno Y Sano", stars: 4.1, appetite: "medhunger", cuisine: "mexican", price: "$", quizVibe: "quick", vibe: "reliable, flavorful, fresh", occasion: "nooccasion", location: "Amherst Center", score: 0 }
-
-];
-
 const quiz = document.getElementById("foodMoodForm");
 quiz.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    let scored_restaurants = [...quiz_restaurants];
+    let scored_restaurants = [...restaurants];
     
     // reset score
     for(let i = 0; i < scored_restaurants.length; i++) {
@@ -180,17 +180,6 @@ quiz.addEventListener("submit", (event) => {
 // map buttons
 
 // before fixing server issues, local storage for map only
-const restaurants = [
-    { _id: '1', name: "Lili's", stars: 4.1, cuisine: "pub", price: "$$", location: "East Amherst", score: 0 },
-    { _id: '2', name: "Miss Saigon", stars: 4.1, cuisine: "deli", price: "$", location: "West Amherst", score: 0 },
-    { _id: '3', name: "Chicken & Kebab", stars: 4.1, cuisine: "grill", price: "$$", location: "Central Amherst", score: 0 },
-    { _id: '4', name: "Johnny's Diner", stars: 4.1, cuisine: "pub", price: "$$", location: "East Amherst", score: 0 },
-    { _id: '5', name: "Protocol", stars: 4.1, cuisine: "deli", price: "$", location: "West Amherst", score: 0 },
-    { _id: '6', name: "House of Teriyaki", stars: 4.1, cuisine: "grill", price: "$$", location: "Central Amherst", score: 0 },
-    { _id: '7', name: "Woo", cuisine: "pub", stars: 4.1, price: "$$", location: "East Amherst", score: 0 },
-    { _id: '8', name: "Frank", cuisine: "deli", stars: 4.1, price: "$", location: "West Amherst", score: 0 },
-    { _id: '9', name: "Hamp/Berk", cuisine: "grill", stars: 4.1, price: "$$", location: "Central Amherst", score: 0 },
-]
 
 if (restaurantDisplay !== null) {
     restaurantDisplay.innerHTML = `
@@ -338,7 +327,8 @@ async function createRestrnt() {
   const response = await fetch(`${URL}/create?id=${id}`, {
     method: "POST",
   });
-  const data = await response.text();
+  const data = await response.json();
+  console.log(data);
 
   restrtResponse.innerHTML = data;
 }

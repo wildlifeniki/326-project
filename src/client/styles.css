@@ -326,6 +326,13 @@ fieldset {
   -ms-transform: translate(-49%, -29%);
 }
 
+.container #btn10 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-65%, -65%);
+  -ms-transform: translate(-65%, -65%);
+}
+
 .borderbox {
   border: 1px dashed cadetblue;
   padding: 4px;

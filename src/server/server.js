@@ -11,6 +11,7 @@ async function createRestraunt(response, id){
     try{
          id = id.toString();
          let oldRestraunt = await db.getRestaurant(id);
+         console.log(oldRestraunt.doc);
         await newDB.addRestaurant(oldRestraunt);
         const restaurant = await newDB.getRestaurant(id);
         response.writeHead(200, headerFields);

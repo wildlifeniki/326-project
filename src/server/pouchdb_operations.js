@@ -1,5 +1,6 @@
 //PouchDB db initialize
 import PouchDB from "pouchdb";
+import { restaurants } from "../client/script";
 
 var db = new PouchDB('restaurants');
 
@@ -7,19 +8,7 @@ var db = new PouchDB('restaurants');
 //window.addEventListener("DOMContentLoaded", async function () {
     //array of restaurant objects
     //add and delete restaurants as required by modifying table, or use functions above
-    const restaurantsToAdd = [
-        { _id: '1', name: "Moge Tee", stars: 4.3, appetite: "lilbit", cuisine: "asian", price: "cheap", quizVibe: "cool", vibe: "modern, playful, sweet", occasion: "firstDate", location: "Amherst Center", score: 0 }, 
-        { _id: '2', name: "Halal Cart", stars: 4.8, appetite: "medhunger", cuisine: "middleEastern", price: "cheap", quizVibe: "quick", vibe: "Messy, spicy, delicious", occasion: "nooccasion", location: "Amherst Center", score: 0 },
-        { _id: '3', name: "Carefree Cakery", stars: 4.9, appetite: "lilbit", cuisine: "dessert", price: "cheap", quizVibe: "quick", vibe: "cutesy, small, slightly overpriced", occasion: "firstDate", location: "North Amherst", score: 0 },
-        { _id: '4', name: "Miss Saigon", stars: 4.6, appetite: "medhunger", cuisine: "asian", price: "cheap", quizVibe: "date", vibe: "quaint, well-loved, child-in-back-room-doing-the-accounting vibes", occasion: "firstDate", location: "Amherst Center", score: 0 }, 
-        { _id: '5', name: "House of Teriyaki", stars: 4.5, appetite: "starving", cuisine: "asian", price: "expensive", quizVibe: "date”, vibe: “home-cooked, filling, authentic", occasion: "firstDate", location: "North Amherst", score: 0 },
-        { _id: '6', name: "Protocol", stars: 4.8, appetite: "medhunger", cuisine: "american", price: "veryexpensive", quizVibe: "cool", vibe: "chic, greenery, pricey",  occasion: "formal", location: "Amherst Center", score: 0 },
-        { _id: '7', name: "Lili's Restaurant", stars: 4.8, appetite: "starving", cuisine: "asian", price: "expensive", quizVibe: "date", vibe: "small, authentic, flavorful", occasion: "firstDate", location: "Amherst Center", score: 0 },
-        { _id: '8', name: "Chicken & Kebab", stars: 4.8, appetite: "starving", cuisine: "middleEastern", price: "expensive", quizVibe: "quick", vibe: "flavorful, new, unique", occasion: "nooccasion", location: "Amherst Center", score: 0 },
-        { _id: '9', name: "Johnny's Tavern", stars: 4.1, appetite: "starving", cuisine: "american", price: "veryexpensive", quizVibe: "cool", vibe: "classic, family-favorite, filling", occasion: "formal", location: "Amherst Center", score: 0 }, 
-        { _id: '10', name: "Bueno Y Sano", stars: 4.1, appetite: "medhunger", cuisine: "mexican", price: "cheap", quizVibe: "quick", vibe: "reliable, flavorful, fresh", occasion: "nooccasion", location: "Amherst Center", score: 0 }
-
-    ];
+    const restaurantsToAdd = [... restaurants];
 
     //add a restaurant to PouchDB database
     //note: not the same as addRestaurant function, for in file adding
