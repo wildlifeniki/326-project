@@ -1,6 +1,6 @@
 //import { db, getRestaurant } from './pouchdb_operations.js'; // Assuming you export your PouchDB instance from pouchdb_operations.js
 
-
+//db.destroy()
 const homeDiv = document.getElementById("home");
 const quizDiv = document.getElementById("quiz");
 const restaurantsDiv = document.getElementById("restaurants");
