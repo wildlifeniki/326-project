@@ -37,7 +37,6 @@ const readBtn = document.getElementById("readBtn");
 const updateBtn = document.getElementById("updateBtn");
 const deleteBtn = document.getElementById("deleteBtn");
 const getAll = document.getElementById("getAll");
-//const viewAllBtn = document.getElementById("viewAllBtn");
 const quizDisplay1 = document.getElementById("result-display1");
 const quizDisplay2 = document.getElementById("result-display2");
 const quizDisplay3 = document.getElementById("result-display3");
@@ -45,12 +44,6 @@ const quizDisplay3 = document.getElementById("result-display3");
 
 //navigation
 const URL = "http://localhost:3260"; // URL of our server
-// let rests = [];
-// async function viewAllOldRests() {
-//     const response = await fetch(`${URL}/allRests`, { method: "GET" });
-//     rests = await response.text();
-  
-//   }
 
 function goHome() {
     contentDiv.innerHTML = "";
@@ -170,14 +163,9 @@ quiz.addEventListener("submit", (event) => {
     displayRestaurant(quizDisplay1, best_restaurants[0]);
     displayRestaurant(quizDisplay2, best_restaurants[1]);
     displayRestaurant(quizDisplay3, best_restaurants[2]);
-
-    console.log(best_restaurants)
 });
 
 // map buttons
-
-// before fixing server issues, local storage for map only
-
 
 if (restaurantDisplay !== null) {
     restaurantDisplay.innerHTML = `
@@ -325,7 +313,7 @@ async function createRestrnt() {
   const response = await fetch(`${URL}/create?id=${id}`, {
     method: "POST",
   });
-  const data = await response.json();
+  const data = await response.text();
   console.log(data);
 
   restrtResponse.innerHTML = data;

@@ -44,6 +44,7 @@ async function readRestaurant(response, id) {
       response.end();
     }
   }
+  
   //add personal rating system that updates? or perhaps favorites? need to ask
   async function updtRestuarant(response, id) {
     try {

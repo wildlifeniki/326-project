@@ -1,7 +1,7 @@
 //PouchDB db initialize
 import PouchDB from "pouchdb";
 
-restaurants = [
+const restaurants = [
     { _id: '1', name: "Moge Tee", stars: 4.3, appetite: "lilbit", cuisine: "asian", price: "$", quizVibe: "cool", vibe: "modern, playful, sweet", occasion: "firstDate", location: "Amherst Center", score: 0 }, 
     { _id: '2', name: "Halal Cart", stars: 4.8, appetite: "medhunger", cuisine: "middleEastern", price: "$", quizVibe: "quick", vibe: "Messy, spicy, delicious", occasion: "nooccasion", location: "Amherst Center", score: 0 },
     { _id: '3', name: "Carefree Cakery", stars: 4.9, appetite: "lilbit", cuisine: "dessert", price: "$", quizVibe: "quick", vibe: "cutesy, small, slightly overpriced", occasion: "firstDate", location: "North Amherst", score: 0 },
@@ -17,39 +17,38 @@ restaurants = [
 
 var db = new PouchDB('restaurants');
 
-//db.destroy()
-//window.addEventListener("DOMContentLoaded", async function () {
-    //array of restaurant objects
-    //add and delete restaurants as required by modifying table, or use functions above
-    const restaurantsToAdd = [... restaurants];
+const restaurantsToAdd = [... restaurants];
 
-    //add a restaurant to PouchDB database
-    //note: not the same as addRestaurant function, for in file adding
-    async function addRestaurantToDB(restaurant) {
-        console.log('Adding restaurant:', restaurant.name);
-        return db.put(restaurant)
-            .then(function (response) {
-                console.log('Restaurant added:', restaurant.name);
-                return response;
-            })
-            .catch(function (err) {
-                console.error('Error adding restaurant:', err);
-                throw err;
-            });
-    }
+//add a restaurant to PouchDB database
+//note: not the same as addRestaurant function, for in file adding
+async function addRestaurantToDB(restaurant) {
+    console.log('Adding restaurant:', restaurant.name);
+    return db.put(restaurant)
+        .then(function (response) {
+            console.log('Restaurant added:', restaurant.name);
+            return response;
+        })
+        .catch(function (err) {
+            console.error('Error adding restaurant:', err);
+            throw err;
+        });
+}
 
-    //add all restaurants to PouchDB database
-    async function addRestaurantsToDB(restaurants) {
-        return Promise.all(restaurants.map(restaurant => addRestaurantToDB(restaurant)));
-    }
-    addRestaurantsToDB(restaurantsToAdd)
+//add all restaurants to PouchDB database
+async function addRestaurantsToDB(restaurants) {
+    return Promise.all(restaurants.map(restaurant => addRestaurantToDB(restaurant)));
+}
+db.info().then(function (result) {
+    if(result.doc_count === 0) {
+        addRestaurantsToDB(restaurantsToAdd)
         .then(() => {
             console.log('All restaurants added to the database successfully.');
         })
         .catch(err => {
             console.error('Error adding restaurants to the database:', err);
         });
-//});
+    }
+    });
 
 
 //functions to retrieve or modify database, not as important to understand
@@ -57,19 +56,22 @@ var db = new PouchDB('restaurants');
 //add restaurant to the database
 export function addRestaurant(id, name, genre, price, location) {
     console.log('Adding restaurant:', id, name, genre, price, location);
-    return db.put({
-        _id: id,
-        name: name,
-        genre: genre,
-        price: price,
-        location: location
-    }).then(function (response) {
-        console.log('Restaurant added:', response);
-        return response;
-    }).catch(function (err) {
-        console.error('Error adding restaurant:', err);
-        throw err;
-    });
+    let exists = db.get(id);
+    if (exists != null) {
+        return db.put({
+            _id: id,
+            name: name,
+            genre: genre,
+            price: price,
+            location: location
+        }).then(function (response) {
+            console.log('Restaurant added:', response);
+            return response;
+        }).catch(function (err) {
+            console.error('Error adding restaurant:', err);
+            throw err;
+        });
+    }
 }
 
 //retrieve restaurant from the database
@@ -122,8 +124,5 @@ export async function loadAllRestraunts() {
     const result = await db.allDocs({ include_docs: true });
     return result.rows.map((row) => row.doc);
   }
-//function calls to get info on database, put in console 
-// db.info().then(function (info) {
-//   console.log(info);
-// })
+
 export {db};
