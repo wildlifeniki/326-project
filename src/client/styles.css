@@ -263,72 +263,74 @@ fieldset {
   }
 }
 
+/* Moge */
 .container #btn1 {
-  top: 59%;
-  left: 42%;
+  top: 62%;
+  left: 39%;
   transform: translate(-59%, -42%);
   -ms-transform: translate(-59%, -42%);
 }
-
+/* Halal */
 .container #btn2 {
-  top: 63%;
-  left: 43%;
+  top: 57%;
+  left: 47%;
   transform: translate(-63%, -44%);
   -ms-transform: translate(-63%, -44%);
 }
-
+/* Carefree */
 .container #btn3 {
-  top: 68%;
-  left: 47%;
+  top: 5%;
+  left: 37%;
   transform: translate(-68%, -47%);
   -ms-transform: translate(-68%, -47%);
 }
-
+/* Saigon */
 .container #btn4 {
-  top: 79%;
-  left: 29%;
+  top: 56%;
+  left: 41%;
   transform: translate(-79%, -29%);
   -ms-transform: translate(-79%, -29%);
 }
-
+/* Teriyaki */
 .container #btn5 {
-  top: 60%;
-  left: 50%;
+  top: 15%;
+  left: 35%;
   transform: translate(-60%, -50%);
   -ms-transform: translate(-60%, -50%);
 }
-
+/* protocol */
 .container #btn6 {
-  top: 8%;
-  left: 33%;
+  top: 60%;
+  left: 48%;
   transform: translate(-80%, -50%);
   -ms-transform: translate(-80%, -50%);
 }
-
+/* Lili's */
 .container #btn7 {
-  top: 30%;
-  left: 35%;
+  top: 53%;
+  left: 41%;
   transform: translate(-30%, -35%);
   -ms-transform: translate(-30%, -35%);
 }
-
+/* Kebab */
 .container #btn8 {
-  top: 38%;
-  left: 38%;
+  top: 60%;
+  left: 49%;
   transform: translate(-38%, -38%);
   -ms-transform: translate(-38%, -38%);
 }
-
+/* Johnny's */
 .container #btn9 {
-  top: 49%;
-  left: 29%;
+  top: 61%;
+  left: 54%;
   transform: translate(-49%, -29%);
   -ms-transform: translate(-49%, -29%);
 }
 
+/* Bueno */
 .container #btn10 {
-  top: 50%;
-  left: 50%;
+  top: 58%;
+  left: 55%;
   transform: translate(-65%, -65%);
   -ms-transform: translate(-65%, -65%);
 }

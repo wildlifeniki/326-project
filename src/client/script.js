@@ -175,7 +175,7 @@ if (restaurantDisplay !== null) {
             </tr>
         </table>
     `
-    for (let i = 1; i <= 9; i++) {
+    for (let i = 1; i <= restaurants.length; i++) {
         let buttonId = "btn".concat(i)
         const restaurantOnMapButton = document.getElementById(buttonId);
         const restaurant = restaurants.find(r => r._id === i.toString());
